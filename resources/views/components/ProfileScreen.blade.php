@@ -1,4 +1,3 @@
-<main id="page" class="row m-0 p-0 justify-content-center" style="min-height: 86.5vh; align-items: center; display: none;"></main>
 <!---------------------------------------------------- Profile Page Container ------------------------------------------------->
 <!-------- This div Contains two vertical divs of the page (Profile, Products) and PopUp window ------------------------->
 <div class="row m-0 p-0 justify-content-center">
