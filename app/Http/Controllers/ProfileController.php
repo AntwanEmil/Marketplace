@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +14,9 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $purchased_items = DB::table('purshased_items')->select('purshased_items.*')->where('user_id','=',1);
-        return view('welcome', compact('purchased_items'));
+        return view('user.ProfileScreen');
 
     }
+
+   
 }
