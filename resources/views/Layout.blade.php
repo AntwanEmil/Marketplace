@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <html>
     <head>
-        <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="/css/style.css">
         <link rel="icon" href="../images/logo.PNG" />
         <title>Capitalstore</title>
     </head>
@@ -297,20 +297,3 @@
                                           <!---------------------------------- 
                                             Here is the body of each page
                                             ------------------------------------------------->
-
-          </main>
-        </div>
-
-        <!------------------------------------------------ Footer ---------------------------------------------------------------> 
-        <footer class="fixed-bottom" style="position: relative; z-index: 1;">
-          <div class="navbar text-light justify-content-center w-100" style="background-color: #000913;">
-            <span class ="mt-1">All rights reserved.</span>
-          </div>
-        </footer>
-        <!------------------------------------------------ End of Footer -------------------------------------------------------> 
-        
-  <script src="../js/script.js">
-  </script>
-
-</body>
-</html>

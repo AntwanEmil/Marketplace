@@ -1,5 +1,7 @@
 <!---------------------------------------------------- Profile Page Container ------------------------------------------------->
 <!-------- This div Contains two vertical divs of the page (Profile, Products) and PopUp window ------------------------->
+@include('Layout')
+
 <div class="row m-0 p-0 justify-content-center">
 
     <!-------------------------------------------- Profile Verticle container ------------------------------------------------->
@@ -24,7 +26,7 @@
             <div class="profile_contentBigContainer">
                 <div class="product_contentSmallContainer row justify-content-center">
                     <!------------------------------- Profile Image Container ------------------------->
-                    <div class="row p-2 justify-content-center" style="align-items: center; width:90%;">
+                    <div class="row p-2 justify-content-center" style="align-items: center; width:85%">
                         <div class="Profile_border imag_container sidenNavProfileborder">
                             <div class="inner_profile"> 
                             <!---------------- Profile Image to be Changed ----------------->
@@ -35,11 +37,11 @@
                     <!----------------------------End of Profile Image Container ----------------------->
 
                     <!------------------------------- Profile Info Container ------------------------->
-                    <div class="ProileContainer p-2 justify-content-center" style="width: 90%;">
+                    <div class="ProileContainer p-2 justify-content-center" style="width: 90%">
                         <!------------------ Store Name to be changed ------------->
                         <span style="font-size: 37px;">Addidas</span>
                         <!------------------ User Name to be changed ------------->
-                        <span style="font-size: 20px; color: gray; font-weight:lighter; display: block;">Username</span>
+                        <span style="font-size: 20px; padding:0px; color: gray; font-weight:lighter; display: block;">Username</span>
                         <!------------------ Email to be changed ------------->
                         <span style="font-size: 18px; color: gray; font-weight:lighter;">Addidas@gmail.com</span>
                         <!------------------ Current Cash to be changed ------------->
@@ -330,4 +332,5 @@
       </div>
   </div>       
 </div>
-<!----------------------------------------------------------------------- End of PopUp Window ----------------------------------------------------------->
+
+@include('components.Footer')
