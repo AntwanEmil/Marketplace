@@ -14,7 +14,6 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $purchased_items = DB::table('purshased_items')->select('purshased_items.*')->where('user_id','=',1);
-        //return view('/components/ProfileScreen');  // used for trial only :"
         return view('user.ProfileScreen');
 
     }
