@@ -14,7 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function() {return view('home.HomeScreen');});
 
 Route::get('/profile',[ProfileController::class,'index']);
+Route::get('/editProfile', function() {return view('user.EditProfileScreen');});
+
+Route::get('/productDetails', function() {return view('products.ProductDetails');});
+Route::get('/addProduct', function() {return view('products.AddProduct');});
+Route::get('/editProduct', function() {return view('products.EditProduct');});
+
+Route::get('/signIn', function() {return view('auth.SignInScreen');});
+Route::get('/register', function() {return view('auth.RegisterScreen');});
+
+Route::get('/error', function() {return view('components.Error');});
 
 

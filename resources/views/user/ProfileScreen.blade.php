@@ -1,3 +1,8 @@
+<x-Layout>
+
+  @section('content')
+      
+
 <!---------------------------------------------------- Profile Page Container ------------------------------------------------->
 <!-------- This div Contains two vertical divs of the page (Profile, Products) and PopUp window ------------------------->
 <div class="row m-0 p-0 justify-content-center">
@@ -10,10 +15,10 @@
             <div class="Profile_header_container shadow">
                 <div class="row justify-content-between Product_header">
                     <div class="col-8" style="width:fit-content">
-                        <img src="../../images/store-solid.svg" style="width: 25px;"> Profile </div>
+                        <img src="{{URL::asset('images/store-solid.svg')}}" style="width: 25px;"> Profile </div>
                     <!-------------------------- Edit Profile Button ----------------------->
                     <div class="col-4"> 
-                        <button type="button" class="btn btn-outline-light"><i class="fa fa-edit"></i></button>
+                        <a href="editProfile" class="btn btn-outline-light"><i class="fa fa-edit"></i></a>
                     </div>
                 </div>
                 <hr>
@@ -28,7 +33,7 @@
                         <div class="Profile_border imag_container sidenNavProfileborder">
                             <div class="inner_profile"> 
                             <!---------------- Profile Image to be Changed ----------------->
-                            <img class="profile_image" src="../../images/addidas.png">
+                            <img class="profile_image" src="{{URL::asset('images/addidas.png')}}">
                             </div>
                         </div>
                     </div>
@@ -67,7 +72,7 @@
                     <div class="col-lg-2 col-md-5 col-sm-6" style="width:fit-content"><i class="fa fa-shopping-cart"></i> Products</div>
                     <!-------------------------------- Add Product Button -------------------------------->
                     <div class="col-lg-1 col-md-2 col-sm-3"> 
-                        <button type="button" class="btn btn-outline-dark"><i class="fa fa-plus"></i></button>
+                        <a href="addProduct" class="btn btn-outline-dark"><i class="fa fa-plus"></i></a>
                     </div>
                 </div>
                 <hr>
@@ -80,11 +85,11 @@
 
                     <!------------------------------ Product 1 ------------------------------------->
                     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                        <a href="EditProduct.html">
+                        <a href="productDetails">
                           <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                             <div style="height:67%;">
                             <!------------- Image of the product to be changed ------------------>
-                              <img src="../../images/shirt1.jpg" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
+                              <img src="{{URL::asset('images/shirt1.jpg')}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
                             </div> 
                             <!------------- Name of the product to be changed ------------------>
                             <div>Slim T-shirt</div>
@@ -94,19 +99,19 @@
                             <!------------- Price of the product to be changed ------------------>
                             </span>30</div>
                             <!------------- Edit Product Button ------------------>
-                            <button type="button" class="btn btn-outline-success" style="width: 100%;">Edit Product</button>
-                            <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)"></hr>
+                            <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
+                            <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
                           </div>
                         </a>
                       </div>
 
                       <!------------------------------ Product 2 ------------------------------------->
                     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                      <a href="EditProduct.html">
+                    <a href="productDetails">
                         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                           <div style="height:67%;">
                           <!------------- Image of the product to be changed ------------------>
-                            <img src="../../images/shirt1.jpg" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
+                            <img src="{{URL::asset('images/shirt1.jpg')}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
                           </div> 
                           <!------------- Name of the product to be changed ------------------>
                           <div>Slim T-shirt</div>
@@ -116,7 +121,7 @@
                           <!------------- Price of the product to be changed ------------------>
                           </span>30</div>
                           <!------------- Edit Product Button ------------------>
-                          <button type="button" class="btn btn-outline-success" style="width: 100%;">Edit Product</button>
+                          <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
                           <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)"></hr>
                         </div>
                       </a>
@@ -124,7 +129,7 @@
 
                     <!------------------------------ Product 3 ------------------------------------->
                     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                      <a href="EditProduct.html">
+                    <a href="productDetails">
                         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                           <div style="height:67%;">
                           <!------------- Image of the product to be changed ------------------>
@@ -138,7 +143,7 @@
                           <!------------- Price of the product to be changed ------------------>
                           </span>30</div>
                           <!------------- Edit Product Button ------------------>
-                          <button type="button" class="btn btn-outline-success" style="width: 100%;">Edit Product</button>
+                          <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
                           <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)"></hr>
                         </div>
                       </a>
@@ -146,7 +151,7 @@
 
                     <!------------------------------ Product 4 ------------------------------------->
                     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                      <a href="EditProduct.html">
+                    <a href="productDetails">
                         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                           <div style="height:67%;">
                           <!------------- Image of the product to be changed ------------------>
@@ -160,7 +165,7 @@
                           <!------------- Price of the product to be changed ------------------>
                           </span>30</div>
                           <!------------- Edit Product Button ------------------>
-                          <button type="button" class="btn btn-outline-success" style="width: 100%;">Edit Product</button>
+                          <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
                           <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)"></hr>
                         </div>
                       </a>
@@ -168,7 +173,7 @@
                     
                     <!------------------------------ Product 5 ------------------------------------->
                     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                      <a href="EditProduct.html">
+                    <a href="productDetails">
                         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                           <div style="height:67%;">
                           <!------------- Image of the product to be changed ------------------>
@@ -182,7 +187,7 @@
                           <!------------- Price of the product to be changed ------------------>
                           </span>30</div>
                           <!------------- Edit Product Button ------------------>
-                          <button type="button" class="btn btn-outline-success" style="width: 100%;">Edit Product</button>
+                          <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
                           <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)"></hr>
                         </div>
                       </a>
@@ -190,7 +195,7 @@
 
                     <!------------------------------ Product 6 ------------------------------------->
                     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                      <a href="EditProduct.html">
+                    <a href="productDetails">
                         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                           <div style="height:67%;">
                           <!------------- Image of the product to be changed ------------------>
@@ -204,7 +209,7 @@
                           <!------------- Price of the product to be changed ------------------>
                           </span>30</div>
                           <!------------- Edit Product Button ------------------>
-                          <button type="button" class="btn btn-outline-success" style="width: 100%;">Edit Product</button>
+                          <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
                           <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)"></hr>
                         </div>
                       </a>
@@ -212,7 +217,7 @@
 
                     <!------------------------------ Product 7 ------------------------------------->
                     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                      <a href="EditProduct.html">
+                    <a href="productDetails">
                         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                           <div style="height:67%;">
                           <!------------- Image of the product to be changed ------------------>
@@ -226,7 +231,7 @@
                           <!------------- Price of the product to be changed ------------------>
                           </span>30</div>
                           <!------------- Edit Product Button ------------------>
-                          <button type="button" class="btn btn-outline-success" style="width: 100%;">Edit Product</button>
+                          <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
                           <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)"></hr>
                         </div>
                       </a>
@@ -234,7 +239,7 @@
 
                     <!------------------------------ Product 8 ------------------------------------->
                     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                      <a href="EditProduct.html">
+                    <a href="productDetails">
                         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                           <div style="height:67%;">
                           <!------------- Image of the product to be changed ------------------>
@@ -248,7 +253,7 @@
                           <!------------- Price of the product to be changed ------------------>
                           </span>30</div>
                           <!------------- Edit Product Button ------------------>
-                          <button type="button" class="btn btn-outline-success" style="width: 100%;">Edit Product</button>
+                          <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
                           <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)"></hr>
                         </div>
                       </a>
@@ -325,9 +330,11 @@
           </div>
           <!--Confirmation GIF-->
           <div id="ConfirmationGIF" class="ConfirmationGIF">
-              <img src="../../images/checkmark.gif" style="width: 100%;">
+              <img src="{{URL::asset('images/checkmark.gif')}}" style="width: 100%;">
           </div>
       </div>
   </div>       
 </div>
 <!----------------------------------------------------------------------- End of PopUp Window ----------------------------------------------------------->
+@endsection
+</x-Layout>
