@@ -20,6 +20,6 @@ class User extends Authenticatable
     const CREATED_AT = null;
     const UPDATED_AT = null;
     protected $guarded = [];
-    protected $table = "items";
+    protected $table = "users";
 
 }
