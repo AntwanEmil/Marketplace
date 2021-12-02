@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,14 +30,7 @@ Route::post('/addProduct', [ItemController::class, 'store']);
 
 Route::get('/editProduct', function() {return view('products.EditProduct');});
 
-//Route::get('/signIn', function() {return view('auth.SignInScreen');});
+Route::get('/signIn', function() {return view('auth.SignInScreen');});
 Route::get('/register', function() {return view('auth.RegisterScreen');});
 
 Route::get('/error', function() {return view('components.Error');});
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
