@@ -12,16 +12,25 @@ class ProfileController extends Controller
 {
     //
 
-    public function index(Request $request)
+    public function index()
     {
         // $user = auth()->user();
-       
-        $items = Item::select('items.*')->where('owner_id','=',1)->get();   //added products section
+       if(auth()->user()){
+           
+        $user = auth()->user();
+        $items = Item::select('items.*')->where('owner_id','=',$user->id)->get();   //added products section
         
-        $purchased_items = DB::table('purshased_items')->select('purshased_items.*')->where('user_id','=',1);
+        $purchased_items = DB::table('purshased_items')->select('purshased_items.*')->where('user_id','=',$user->id);
         
-        $user = User::select('users.*')->where('id','=',1)->first();
-        return view('user.ProfileScreen',['items'=>$items, 'user'=>$user]);
+        
+        return view('user.ProfileScreen',['items'=>$items, 'user'=>$user, 'purchased' =>$purchased_items]);
+       }
+
+       else{
+           return redirect()->back()->with('fail','You are not logged in');
+       }
     }
 
+   
+  
 }
