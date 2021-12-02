@@ -43,9 +43,26 @@
           <!-------------------------- Right items in Nav Bar ------------------------------------------->
           <div class="col col-xl-3 col-lg-3 col-md-1 col-sm-5 d-flex flex-row-reverse RightItems" style="display:flex; overflow:hidden; max-height: 4rem;">
 
-            <!------------------- Log out item --------------------------------->
-            <a href="signIn" class="row text-light p-2 navItem justify-content-center" style="text-decoration: none; align-items: center;" >Log-Out</a>
 
+            @auth
+
+
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                            @endauth
+
+
+
+            <!------------------- Log out item --------------------------------->
+            
             <!-------------------------- Profile item -------------------------->
             <a href="profile" class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;" >
               <!------------ Profile circular Image ---------------------->
