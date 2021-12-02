@@ -38,7 +38,33 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <div class="row mb-3">
+                            <label for="balance" class="col-md-4 col-form-label text-md-right">{{ __('balance') }}</label>
+    
+                            <div class="col-md-6">
+                                <input id="balance" type="number" class="form-control @error('balance') is-invalid @enderror" name="balance" value="{{ old('balance') }}" required autocomplete="balance">
+    
+                                @error('balance')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                            <label for="Storename" class="col-md-4 col-form-label text-md-right">{{ __('Storename') }}</label>
+    
+                            <div class="col-md-6">
+                                <input id="Storename" type="text" class="form-control @error('Storename') is-invalid @enderror" name="Storename" value="{{ old('Storename') }}" required autocomplete="Storename">
+    
+                                @error('balance')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
