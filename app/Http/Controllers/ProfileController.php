@@ -19,7 +19,8 @@ class ProfileController extends Controller
 
             $purchased_items = DB::table('purshased_items')->where('purshased_items.user_id', '=', $user->id)
                 ->join('items', 'purshased_items.item_id', '=', 'items.id')
-                ->select('items.*', 'purshased_items.amount')
+                ->join('users','items.owner_id','=','users.id')
+                ->select('items.*', 'purshased_items.amount','users.Storename')
                 ->get();
 
             $sell_item = DB::table('sellers')->where('sellers.seller_id', '=', $user->id)

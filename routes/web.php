@@ -22,7 +22,7 @@ Route::get('/', [ItemController::class,'index']);
 Route::get('/profile',[ProfileController::class,'index']);
 Route::get('/editProfile', function() {return view('user.EditProfileScreen');});
 
-Route::get('/productDetail/{id}', [ItemController::class,'ViewItem']);
+Route::get('/ProductDetail/{id}', [ItemController::class,'ViewItem']);
 
 Route::get('/addProduct',function() {return view('products.AddProduct');});
 Route::post('/addProduct', [ItemController::class, 'store']);

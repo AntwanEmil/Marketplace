@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -46,21 +47,20 @@ class ItemController extends Controller
     }
 
     public function ViewItem($id)
-    {   if(auth()->user()){
+    {if (auth()->user()) {
         $user = auth()->user();
 
-        if(Item::where('id',$id)->exists()){
-            $item = Item::where('id',$id)->first();
-            return view('products.ProductDetails',['item'=>$item, 'user'=>$user]);
+        if (Item::where('id', $id)->exists()) {
+            $item = Item::where('id', $id)->first();
+            $store = User::where('id',$item->owner_id)->first();
+            
+            return view('products.ProductDetails', ['item' => $item, 'store' => $store]);
+        } else {
+            return redirect()->back()->with('fail', 'No such a product');
         }
-        else{
-            return redirect()->back()->with('fail','No such a product');
-        }
-    }
-    else{
-        return redirect()->back()->with('fail','You are not logged in');
+    } else {
+        return redirect()->back()->with('fail', 'You are not logged in');
     }
     }
 
-    
 }

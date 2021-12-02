@@ -3,6 +3,13 @@
   @section('content')
       
 
+  @if(session('fail'))
+  <div class="alert alert-danger">{{session('fail')}}</div>
+
+  @elseif(session('success'))
+  <div class="alert alert-success">{{session('success')}}</div>
+
+  @endif
 <!---------------------------------------------------- Profile Page Container ------------------------------------------------->
 <!-------- This div Contains two vertical divs of the page (Profile, Products) and PopUp window ------------------------->
 <div class="row m-0 p-0 justify-content-center">
@@ -42,13 +49,13 @@
                     <!------------------------------- Profile Info Container ------------------------->
                     <div class="ProileContainer p-2 justify-content-center" style="width: 90%;">
                         <!------------------ Store Name to be changed ------------->
-                        <span style="font-size: 37px;">Addidas</span>
+                        <span style="font-size: 37px;">{{$user->Storename}}</span>
                         <!------------------ User Name to be changed ------------->
-                        <span style="font-size: 20px; color: gray; font-weight:lighter; display: block;">Username</span>
+                        <span style="font-size: 20px; color: gray; font-weight:lighter; display: block;">{{$user->name}}</span>
                         <!------------------ Email to be changed ------------->
-                        <span style="font-size: 18px; color: gray; font-weight:lighter;">Addidas@gmail.com</span>
+                        <span style="font-size: 18px; color: gray; font-weight:lighter;">{{$user->email}}</span>
                         <!------------------ Current Cash to be changed ------------->
-                        <p style="font-size: 20px;">Current Cash: <span style="color: rgb(248, 59, 106)">$220.02</span></p>
+                        <p style="font-size: 20px;">Current Cash: <span style="color: rgb(248, 59, 106)">${{$user->balance}}</span></p>
                     </div>
                     <!------------------------------- End of Profile Info Container ------------------------->
                 </div>
@@ -127,7 +134,7 @@
                             
                                        
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                          <a href="productDetails">
+                          <a href="{{url('ProductDetail/'. $item->id)}}">
                             <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                               <div style="height:67%;">
                               <!------------- Image of the product to be changed ------------------>
@@ -136,7 +143,7 @@
                               <!------------- Name of the product to be changed ------------------>
                               <div>{{$item->name}}</div>
                               <!------------- Name of the store to be changed ------------------>
-                              <div style="font-size:95%; color:gray">{{$user->Storename}}</div>
+                              <div style="font-size:95%; color:gray">{{$item->Storename}}</div>
                               <div style="font-size:120; font-weight:bold; color:red" ><span>$
                               <!------------- Price of the product to be changed ------------------>
                               </span>{{$item->price}}</div>
