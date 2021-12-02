@@ -89,28 +89,7 @@
                   <div class="row justify-content-center" id="ForSaleClass">
                       <!--------------- The folloing are repeated blocks of different products ------------->
 
-                        <!------------------------------ Product 1 ------------------------------------->                      
-                        <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                          <a href="productDetails">
-                            <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
-                              <div style="height:67%;">
-                              <!------------- Image of the product to be changed ------------------>
-                                <img src="{{URL::asset('images/shirt1.jpg')}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
-                              </div> 
-                              <!------------- Name of the product to be changed ------------------>
-                              <div>Slim T-shirt</div>
-                              <!------------- Name of the store to be changed ------------------>
-                              <div style="font-size:95%; color:gray">Addidas</div>
-                              <div style="font-size:120; font-weight:bold; color:red" ><span>$
-                              <!------------- Price of the product to be changed ------------------>
-                              </span>30</div>
-                              <!------------- Edit Product Button ------------------>
-                              <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
-                              <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
-                            </div>
-                          </a>
-                        </div>
-            
+                      
                         @foreach ($items as $item)
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
                             <a href="productDetails">
@@ -122,7 +101,7 @@
                                 <!------------- Name of the product to be changed ------------------>
                                 <div>{{$item->name}}</div>
                                 <!------------- Name of the store to be changed ------------------>
-                                <div style="font-size:95%; color:gray">{{$item->store_id}}</div>
+                                <div style="font-size:95%; color:gray">{{$user->Storename}}</div>
                                 <div style="font-size:120; font-weight:bold; color:red" ><span>$
                                 <!------------- Price of the product to be changed ------------------>
                                 </span>{{$item->price}}</div>
@@ -142,30 +121,35 @@
                   <!-------------------------------------------- Purchased Products Div ----------------------------------------->
                   <div class="row justify-content-center" id="PurchasedClass" style="display:none">
                       <!--------------- The folloing are repeated blocks of different products ------------->
-
-                        <!------------------------------ Product 1 ------------------------------------->                      
+                       
+                        <!------------------------------ Product 1 ------------------------------------->    
+                        @foreach ($purchased as $item)
+                            
+                                       
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
                           <a href="productDetails">
                             <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                               <div style="height:67%;">
                               <!------------- Image of the product to be changed ------------------>
-                                <img src="{{URL::asset('images/shirt1.jpg')}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
+                                <img src="{{asset('upload/items/'. $item->image)}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
                               </div> 
                               <!------------- Name of the product to be changed ------------------>
-                              <div>Slim T-shirt</div>
+                              <div>{{$item->name}}</div>
                               <!------------- Name of the store to be changed ------------------>
-                              <div style="font-size:95%; color:gray">Addidas</div>
+                              <div style="font-size:95%; color:gray">{{$user->Storename}}</div>
                               <div style="font-size:120; font-weight:bold; color:red" ><span>$
                               <!------------- Price of the product to be changed ------------------>
-                              </span>30</div>
+                              </span>{{$item->price}}</div>
                               <!------------- Edit Product Button ------------------>
                               <a href="productDetails" class="btn btn-outline-secondary" style="width: 100%;">Product Details</a>
                               <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
                             </div>
                           </a>
                         </div>
+                       
                         <!---------------------------------------- End of repeated blocks of different products ------------------------------------->
                   </div>
+                  @endforeach    
                   <!--------------------------------------------End of purchased Products Div ----------------------------------------->
 
                   <!------------------------------------------------------------------------------------------------------------------------------------------>
@@ -174,71 +158,34 @@
                   <div class="row justify-content-center" id="Added2profileClass" style="display:none">
                       <!--------------- The folloing are repeated blocks of different products ------------->
 
-                        <!------------------------------ Product 1 ------------------------------------->                      
+                        @foreach ($purchased as $item)
+                            
+                                       
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                          <a href="buyProduct">
+                          <a href="productDetails">
                             <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                               <div style="height:67%;">
                               <!------------- Image of the product to be changed ------------------>
-                                <img src="{{URL::asset('images/shirt1.jpg')}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
+                                <img src="{{asset('upload/items/'. $item->image)}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
                               </div> 
                               <!------------- Name of the product to be changed ------------------>
-                              <div>Slim T-shirt</div>
+                              <div>{{$item->name}}</div>
                               <!------------- Name of the store to be changed ------------------>
-                              <div style="font-size:95%; color:gray">Addidas</div>
+                              <div style="font-size:95%; color:gray">{{$user->Storename}}</div>
                               <div style="font-size:120; font-weight:bold; color:red" ><span>$
                               <!------------- Price of the product to be changed ------------------>
-                              </span>30</div>
+                              </span>{{$item->price}}</div>
                               <!------------- Edit Product Button ------------------>
-                              <a href="buyProduct" class="btn btn-outline-secondary" style="width: 100%;">Product Details</a>
+                              <a href="productDetails" class="btn btn-outline-secondary" style="width: 100%;">Product Details</a>
                               <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
                             </div>
                           </a>
                         </div>
-
-                        <!------------------------------ Product 2 ------------------------------------->                      
-                        <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                          <a href="buyProduct">
-                            <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
-                              <div style="height:67%;">
-                              <!------------- Image of the product to be changed ------------------>
-                                <img src="{{URL::asset('images/shirt1.jpg')}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
-                              </div> 
-                              <!------------- Name of the product to be changed ------------------>
-                              <div>Slim T-shirt</div>
-                              <!------------- Name of the store to be changed ------------------>
-                              <div style="font-size:95%; color:gray">Addidas</div>
-                              <div style="font-size:120; font-weight:bold; color:red" ><span>$
-                              <!------------- Price of the product to be changed ------------------>
-                              </span>30</div>
-                              <!------------- Edit Product Button ------------------>
-                              <a href="buyProduct" class="btn btn-outline-secondary" style="width: 100%;">Product Details</a>
-                              <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
-                            </div>
-                          </a>
-                        </div>
-
-                        <!------------------------------ Product 3 ------------------------------------->                      
-                        <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                          <a href="buyProduct">
-                            <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
-                              <div style="height:67%;">
-                              <!------------- Image of the product to be changed ------------------>
-                                <img src="{{URL::asset('images/shirt1.jpg')}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
-                              </div> 
-                              <!------------- Name of the product to be changed ------------------>
-                              <div>Slim T-shirt</div>
-                              <!------------- Name of the store to be changed ------------------>
-                              <div style="font-size:95%; color:gray">Addidas</div>
-                              <div style="font-size:120; font-weight:bold; color:red" ><span>$
-                              <!------------- Price of the product to be changed ------------------>
-                              </span>30</div>
-                              <!------------- Edit Product Button ------------------>
-                              <a href="buyProduct" class="btn btn-outline-secondary" style="width: 100%;">Product Details</a>
-                              <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
-                            </div>
-                          </a>
-                        </div>
+                       
+                        <!---------------------------------------- End of repeated blocks of different products ------------------------------------->
+                  </div>
+                  @endforeach    
+                       
                         <!---------------------------------------- End of repeated blocks of different products ------------------------------------->
                   </div>
                   <!--------------------------------------------End of Added to my profile Products Div ----------------------------------------->
