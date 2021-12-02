@@ -1,3 +1,52 @@
+<x-Layout>
+
+  @section('content')
+      
+
+<!---------------------------------------------------- Profile Page Container ------------------------------------------------->
+<!-------- This div Contains two vertical divs of the page (Profile, Products) and PopUp window ------------------------->
+<div class="row m-0 p-0 justify-content-center">
+
+    <!-------------------------------------------- Profile Verticle container ------------------------------------------------->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="row Product_container shadow" style="width:90%;">
+
+            <!----------------------------------- Profile Container Header --------------------------------->
+            <div class="Profile_header_container shadow">
+                <div class="row justify-content-between Product_header">
+                    <div class="col-8" style="width:fit-content">
+                        <img src="{{URL::asset('images/store-solid.svg')}}" style="width: 25px;"> Profile </div>
+                    <!-------------------------- Edit Profile Button ----------------------->
+                    <div class="col-4"> 
+                        <a href="editProfile" class="btn btn-outline-light"><i class="fa fa-edit"></i></a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <!-----------------------------------End of Profile Container Header --------------------------------->
+
+            <!----------------------------------- Profile Information --------------------------------->
+            <div class="profile_contentBigContainer">
+                <div class="product_contentSmallContainer row justify-content-center">
+                    <!------------------------------- Profile Image Container ------------------------->
+                    <div class="row p-2 justify-content-center" style="align-items: center; width:90%;">
+                        <div class="Profile_border imag_container sidenNavProfileborder">
+                            <div class="inner_profile"> 
+                            <!---------------- Profile Image to be Changed ----------------->
+                            <img class="profile_image" src="{{URL::asset('images/addidas.png')}}">
+                            </div>
+                        </div>
+                    </div>
+                    <!----------------------------End of Profile Image Container ----------------------->
+
+                    <!------------------------------- Profile Info Container ------------------------->
+                    <div class="ProileContainer p-2 justify-content-center" style="width: 90%;">
+                        <!------------------ Store Name to be changed ------------->
+                        <span style="font-size: 37px;">Addidas</span>
+                        <!------------------ User Name to be changed ------------->
+                        <span style="font-size: 20px; color: gray; font-weight:lighter; display: block;">Username</span>
+                        <!------------------ Email to be changed ------------->
+                        <span style="font-size: 18px; color: gray; font-weight:lighter;">Addidas@gmail.com</span>
                         <!------------------ Current Cash to be changed ------------->
                         <p style="font-size: 20px;">Current Cash: <span style="color: rgb(248, 59, 106)">$220.02</span></p>
                     </div>
@@ -40,6 +89,28 @@
                   <div class="row justify-content-center" id="ForSaleClass">
                       <!--------------- The folloing are repeated blocks of different products ------------->
 
+                        <!------------------------------ Product 1 ------------------------------------->                      
+                        <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
+                          <a href="productDetails">
+                            <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
+                              <div style="height:67%;">
+                              <!------------- Image of the product to be changed ------------------>
+                                <img src="{{URL::asset('images/shirt1.jpg')}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
+                              </div> 
+                              <!------------- Name of the product to be changed ------------------>
+                              <div>Slim T-shirt</div>
+                              <!------------- Name of the store to be changed ------------------>
+                              <div style="font-size:95%; color:gray">Addidas</div>
+                              <div style="font-size:120; font-weight:bold; color:red" ><span>$
+                              <!------------- Price of the product to be changed ------------------>
+                              </span>30</div>
+                              <!------------- Edit Product Button ------------------>
+                              <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
+                              <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
+                            </div>
+                          </a>
+                        </div>
+            
                         @foreach ($items as $item)
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
                             <a href="productDetails">
