@@ -163,7 +163,7 @@
                                   <!---------------------- Repeated Blocks of different stores  -------------------->
 
                                   <!---------------------------- Store 1 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -179,7 +179,7 @@
                                   </a>
                                   
                                   <!---------------------------- Store 2 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -195,7 +195,7 @@
                                   </a>
 
                                   <!---------------------------- Store 3 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -211,7 +211,7 @@
                                   </a>
 
                                   <!---------------------------- Store 4 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -227,7 +227,7 @@
                                   </a>
 
                                   <!---------------------------- Store 5 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -243,7 +243,7 @@
                                   </a>
 
                                   <!---------------------------- Store 6 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -259,7 +259,7 @@
                                   </a>
 
                                   <!---------------------------- Store 7 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 

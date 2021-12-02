@@ -20,8 +20,10 @@ Route::get('/', [ItemController::class,'index']);
 
 Route::get('/profile',[ProfileController::class,'index']);
 Route::get('/editProfile', function() {return view('user.EditProfileScreen');});
+Route::get('/store', function() {return view('user.StoreScreen');});
 
 Route::get('/productDetails', function() {return view('products.ProductDetails');});
+Route::get('/buyProduct', function() {return view('products.BuyProduct');});
 
 Route::get('/addProduct',function() {return view('products.AddProduct');});
 Route::post('/addProduct', [ItemController::class, 'store']);

@@ -45,3 +45,84 @@ function Cancel_Buying_function(){
   },500);
 }
 
+function forSaleproductsFunction(){
+  const ForSaleButton = document.getElementById("ForSaleButton");
+  const PurchasedButton = document.getElementById("PurchasedButton");
+  const Added2ProfileButton = document.getElementById("Added2ProfileButton");
+  const AddProductButton = document.getElementById("addProduct");
+  
+  const ForSaleClass = document.getElementById("ForSaleClass");
+  const PurchasedClass = document.getElementById("PurchasedClass");
+  const Added2profileClass = document.getElementById("Added2profileClass");
+
+  ForSaleButton.classList.remove("btn-outline-dark");
+  ForSaleButton.classList.add("btn-dark");
+  ForSaleButton.disabled = true; 
+  ForSaleClass.style.display = "flex"
+  AddProductButton.style.visibility = "visible"
+
+  PurchasedButton.classList.remove("btn-dark");
+  PurchasedButton.classList.add("btn-outline-dark");
+  PurchasedButton.disabled = false;
+  PurchasedClass.style.display = "none"
+  
+  Added2ProfileButton.classList.remove("btn-dark");
+  Added2ProfileButton.classList.add("btn-outline-dark");
+  Added2ProfileButton.disabled = false; 
+  Added2profileClass.style.display = "none"
+}
+
+function purchasedproductsFunction(){
+  const ForSaleButton = document.getElementById("ForSaleButton");
+  const PurchasedButton = document.getElementById("PurchasedButton");
+  const Added2ProfileButton = document.getElementById("Added2ProfileButton");
+  const AddProductButton = document.getElementById("addProduct");
+  
+  const ForSaleClass = document.getElementById("ForSaleClass");
+  const PurchasedClass = document.getElementById("PurchasedClass");
+  const Added2profileClass = document.getElementById("Added2profileClass");
+
+  PurchasedButton.classList.remove("btn-outline-dark");
+  PurchasedButton.classList.add("btn-dark");
+  PurchasedButton.disabled = true; 
+  PurchasedClass.style.display = "flex"
+  AddProductButton.style.visibility = "hidden"
+
+  ForSaleButton.classList.remove("btn-dark");
+  ForSaleButton.classList.add("btn-outline-dark");
+  ForSaleButton.disabled = false;
+  ForSaleClass.style.display = "none";
+  
+  Added2ProfileButton.classList.remove("btn-dark");
+  Added2ProfileButton.classList.add("btn-outline-dark");
+  Added2ProfileButton.disabled = false; 
+  Added2profileClass.style.display = "none";
+}
+
+function Added2ProfileproductsFunction(){
+  const ForSaleButton = document.getElementById("ForSaleButton");
+  const PurchasedButton = document.getElementById("PurchasedButton");
+  const Added2ProfileButton = document.getElementById("Added2ProfileButton");
+  const AddProductButton = document.getElementById("addProduct");
+
+  const ForSaleClass = document.getElementById("ForSaleClass");
+  const PurchasedClass = document.getElementById("PurchasedClass");
+  const Added2profileClass = document.getElementById("Added2profileClass");
+  
+
+  Added2ProfileButton.classList.remove("btn-outline-dark");
+  Added2ProfileButton.classList.add("btn-dark");
+  Added2ProfileButton.disabled = true; 
+  Added2profileClass.style.display = "flex"
+  AddProductButton.style.visibility = "hidden"
+
+  ForSaleButton.classList.remove("btn-dark");
+  ForSaleButton.classList.add("btn-outline-dark");
+  ForSaleButton.disabled = false;
+  ForSaleClass.style.display = "none"
+  
+  PurchasedButton.classList.remove("btn-dark");
+  PurchasedButton.classList.add("btn-outline-dark");
+  PurchasedButton.disabled = false; 
+  PurchasedClass.style.display = "none"
+}
