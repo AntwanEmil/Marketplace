@@ -5,7 +5,7 @@
   <div class="row m-0" style="padding: 0 7% 4% 7%">
     <!---------------- Product 1 ------------------>
     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 27rem; margin:2% 0%;">
-      <a href="productDetails">
+      <a href="buyProduct">
         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
           <div style="height:67%;">
           <!---------------- Image of the product ------------>
@@ -27,7 +27,7 @@
 
     <!---------------- Product 2 ------------------>
     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 27rem; margin:2% 0%;">
-      <a href="productDetails">
+      <a href="buyProduct">
         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
           <div style="height:67%;">
           <!---------------- Image of the product ------------>
@@ -49,7 +49,7 @@
 
     <!---------------- Product 3 ------------------>
     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 27rem; margin:2% 0%;">
-      <a href="productDetails">
+      <a href="buyProduct">
         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
           <div style="height:67%;">
           <!---------------- Image of the product ------------>
@@ -71,7 +71,7 @@
 
     <!---------------- Product 4 ------------------>
     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 27rem; margin:2% 0%;">
-      <a href="productDetails">
+      <a href="buyProduct">
         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
           <div style="height:67%;">
           <!---------------- Image of the product ------------>
@@ -93,7 +93,7 @@
 
     <!---------------- Product 5 ------------------>
     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 27rem; margin:2% 0%;">
-      <a href="productDetails">
+      <a href="buyProduct">
         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
           <div style="height:67%;">
           <!---------------- Image of the product ------------>
@@ -116,7 +116,7 @@
 
     <!---------------- Product 6 ------------------>
     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 27rem; margin:2% 0%;">
-      <a href="productDetails">
+      <a href="buyProduct">
         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
           <div style="height:67%;">
           <!---------------- Image of the product ------------>

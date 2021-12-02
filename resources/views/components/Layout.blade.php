@@ -43,26 +43,9 @@
           <!-------------------------- Right items in Nav Bar ------------------------------------------->
           <div class="col col-xl-3 col-lg-3 col-md-1 col-sm-5 d-flex flex-row-reverse RightItems" style="display:flex; overflow:hidden; max-height: 4rem;">
 
-
-            @auth
-
-
-
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                            @endauth
-
-
-
             <!------------------- Log out item --------------------------------->
-            
+            <a href="signIn" class="row text-light p-2 navItem justify-content-center" style="text-decoration: none; align-items: center;" >Log-Out</a>
+
             <!-------------------------- Profile item -------------------------->
             <a href="profile" class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;" >
               <!------------ Profile circular Image ---------------------->
@@ -180,7 +163,7 @@
                                   <!---------------------- Repeated Blocks of different stores  -------------------->
 
                                   <!---------------------------- Store 1 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -196,7 +179,7 @@
                                   </a>
                                   
                                   <!---------------------------- Store 2 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -212,7 +195,7 @@
                                   </a>
 
                                   <!---------------------------- Store 3 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -228,7 +211,7 @@
                                   </a>
 
                                   <!---------------------------- Store 4 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -244,7 +227,7 @@
                                   </a>
 
                                   <!---------------------------- Store 5 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -260,7 +243,7 @@
                                   </a>
 
                                   <!---------------------------- Store 6 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
@@ -276,7 +259,7 @@
                                   </a>
 
                                   <!---------------------------- Store 7 -------------------------------->
-                                  <a href="profile">
+                                  <a href="store">
                                     <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                       <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                         <div class="inner_profile"> 
