@@ -40,28 +40,6 @@
                   <div class="row justify-content-center" id="ForSaleClass">
                       <!--------------- The folloing are repeated blocks of different products ------------->
 
-                        <!------------------------------ Product 1 ------------------------------------->                      
-                        <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                          <a href="productDetails">
-                            <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
-                              <div style="height:67%;">
-                              <!------------- Image of the product to be changed ------------------>
-                                <img src="{{URL::asset('images/shirt1.jpg')}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
-                              </div> 
-                              <!------------- Name of the product to be changed ------------------>
-                              <div>Slim T-shirt</div>
-                              <!------------- Name of the store to be changed ------------------>
-                              <div style="font-size:95%; color:gray">Addidas</div>
-                              <div style="font-size:120; font-weight:bold; color:red" ><span>$
-                              <!------------- Price of the product to be changed ------------------>
-                              </span>30</div>
-                              <!------------- Edit Product Button ------------------>
-                              <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
-                              <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
-                            </div>
-                          </a>
-                        </div>
-            
                         @foreach ($items as $item)
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
                             <a href="productDetails">

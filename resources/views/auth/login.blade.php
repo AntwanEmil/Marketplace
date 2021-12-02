@@ -68,7 +68,8 @@
         <main id="page" class="row m-0 p-0 justify-content-center" style="min-height: 86.5vh; align-items: center; display: none;">    
             <div class="col col-10 col-sm-8 col-md-7 col-lg-3 m-auto" style="padding:2% 0%;">
             <!------------------------------- SignIn Form --------------------------------------------->
-            <form style="margin:19% 0% 0% 0%;border:1px solid rgb(0,0,0,0.2);border-radius:10px" >
+            <form style="margin:19% 0% 0% 0%;border:1px solid rgb(0,0,0,0.2);border-radius:10px" method="POST" action="{{url('login')}}">
+              @csrf
                 <ul style="list-style-type:none;padding:8% 6%;font-weight:bold">
                     <li><h2>Sign-In</h2></li>
                     <li>
