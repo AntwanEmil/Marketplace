@@ -14,25 +14,26 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
+Route::get('/', [ItemController::class, 'index']);
 
-Route::get('/', [ItemController::class,'index']);
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/editProfile', function () {return view('user.EditProfileScreen');});
 
-Route::get('/profile',[ProfileController::class,'index']);
-Route::get('/editProfile', function() {return view('user.EditProfileScreen');});
+Route::get('/ProductDetail/{id}', [ItemController::class, 'ViewItem']);
+Route::get('/myProdForSale/{id}', [ItemController::class, 'DetailForSale']);
+Route::delete('/delete/{id}', [ItemController::class, 'destroy'])->name('products.ProductDetails');
 
-Route::get('/ProductDetail/{id}', [ItemController::class,'ViewItem']);
-
-Route::get('/addProduct',function() {return view('products.AddProduct');});
+Route::get('/addProduct', function () {return view('products.AddProduct');});
 Route::post('/addProduct', [ItemController::class, 'store']);
 
-Route::get('/editProduct', function() {return view('products.EditProduct');});
+Route::get('/editProduct', function () {return view('products.EditProduct');});
 
 //Route::get('/signIn', function() {return view('auth.SignInScreen');});
-Route::get('/register', function() {return view('auth.RegisterScreen');});
+Route::get('/register', function () {return view('auth.RegisterScreen');});
 
-Route::get('/error', function() {return view('components.Error');});
+Route::get('/error', function () {return view('components.Error');});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

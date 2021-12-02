@@ -98,8 +98,10 @@
 
                       
                         @foreach ($items as $item)
+                        
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                            <a href="productDetails">
+                          
+                          <a href="{{url('myProdForSale/'.$item->id)}}">
                               <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                                 <div style="height:67%;">
                                 <!------------- Image of the product to be changed ------------------>
@@ -117,7 +119,9 @@
                                 <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
                               </div>
                             </a>
+                          
                           </div>
+                        
                           @endforeach
                           <!---------------------------------------- End of repeated blocks of different products ------------------------------------->
                   </div>

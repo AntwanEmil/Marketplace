@@ -1,6 +1,13 @@
 <x-Layout>
 
   @section('content')
+  @if(session('fail'))
+  <div class="alert alert-danger">{{session('fail')}}</div>
+
+  @elseif(session('success'))
+  <div class="alert alert-success">{{session('success')}}</div>
+
+@endif
 
   <!------------- Product Image and link ------------->
   <div class="row m-0" style="padding:0.5% 0% 3% 0%">
@@ -23,6 +30,19 @@
         <div>Nice one,</div>
         <div>Awesome!!</div>
     </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+      <form action="{{route('products.ProductDetails',$item->id)}}" enctype="multipart/form-data" method="POST">
+
+        {{ csrf_field() }}
+        {{method_field('DELETE')}}
+        <button type="submit" class="btn btn-outline-danger w-100 mb-3" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
+          Delete from my store
+      </button>
+
+      </form>
+    </div>
+
   </div>
 
 @endsection

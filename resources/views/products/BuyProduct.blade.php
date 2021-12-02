@@ -47,9 +47,9 @@
                 <submit class="btn btn-outline-success w-100 mb-3" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
                     Add to my store
                 </submit>
-                <submit class="btn btn-outline-danger w-100 mb-3" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
+                <button class="btn btn-outline-danger w-100 mb-3" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
                     Delete from my store
-                </submit>
+                </button>
             </form>   
         </div>
     </div>       
