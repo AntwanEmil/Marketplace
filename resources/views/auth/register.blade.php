@@ -81,9 +81,9 @@
                   <ul style="list-style-type:none; padding:8% 6% 3% 6%; font-weight:bold">
                         <li><h2>Create Account</h2></li>
                         <li>
-                            <label class="mt-4" for="username">User Name</label>
+                            <label class="mt-4" for="name">User Name</label>
                             <!------------------ Input of user name ---------------->
-                            <input class="w-100 form-control" name="username" id="username" ></input>
+                            <input class="w-100 form-control" name="name" id="name" ></input>
                         </li>
                         <li>
                           <label class="mt-4" for="Storename">Store Name</label>
