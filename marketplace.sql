@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 10:03 PM
+-- Generation Time: Dec 03, 2021 at 12:53 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -34,19 +34,17 @@ CREATE TABLE `items` (
   `image` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
-  `owner_id` int(11) NOT NULL,
-  `store_id` int(11) NOT NULL,
-  `for_sale` int(11) NOT NULL
+  `owner_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `name`, `description`, `image`, `price`, `amount`, `owner_id`, `store_id`, `for_sale`) VALUES
-(3, 'fefe', 'frfrfr', '1636499332.png', 55, 5, 2, 1, 0),
-(4, 'new', 'tjjtjtj', '1638397013.png', 60, 5, 1, 1, 0),
-(5, 'blouse', 'efefef', '1638397062.png', 4542, 3, 2, 1, 0);
+INSERT INTO `items` (`id`, `name`, `description`, `image`, `price`, `amount`, `owner_id`) VALUES
+(3, 'fefe', 'frfrfr', '1636499332.png', 55, 5, 2),
+(4, 'new', 'tjjtjtj', '1638397013.png', 60, 5, 1),
+(7, 'blouse', 'ktykmyk', '1638486256.png', 50, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -66,7 +64,7 @@ CREATE TABLE `purshased_items` (
 --
 
 INSERT INTO `purshased_items` (`id`, `user_id`, `item_id`, `amount`) VALUES
-(1, 2, 4, 1);
+(1, 2, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -98,7 +96,7 @@ CREATE TABLE `sellers` (
 --
 
 INSERT INTO `sellers` (`id`, `item_id`, `owner_id`, `seller_id`) VALUES
-(1, 4, 1, 2),
+(1, 7, 1, 2),
 (2, 3, 2, 1);
 
 -- --------------------------------------------------------
@@ -146,7 +144,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `balance`, `Storename`) VALUES
 (1, 'Salma', 'salmasherif294@gmail.com', '$2y$10$I1wDH1cSONDw0/MyRCdAs.YI63w.15WzNYApCBhHNBrB6D/K79Qwa', 100, 'ZARA'),
-(2, 'Salma Sherif', '1700619@eng.asu.edu.eg', '$2y$10$I1wDH1cSONDw0/MyRCdAs.YI63w.15WzNYApCBhHNBrB6D/K79Qwa', 322, 'fefewf');
+(2, 'Salma Sherif', '1700619@eng.asu.edu.eg', '$2y$10$I1wDH1cSONDw0/MyRCdAs.YI63w.15WzNYApCBhHNBrB6D/K79Qwa', 322, 'fefewf'),
+(4, 'aya', 'aya@gm.com', '$2y$10$7uv8Ye74nkdbpBM4xMIWiOLJ9yGGrl3AGSU5FFHTn2WO36kEhSX9q', 500, 'LC');
 
 --
 -- Indexes for dumped tables
@@ -157,8 +156,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `balance`, `Storename`) 
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `test` (`owner_id`),
-  ADD KEY `stores_items` (`store_id`);
+  ADD KEY `test` (`owner_id`);
 
 --
 -- Indexes for table `purshased_items`
@@ -200,7 +198,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `purshased_items`
@@ -230,7 +228,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
