@@ -48,7 +48,7 @@
 
 
 
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;width:100%" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -66,15 +66,16 @@
             <!-------------------------- Profile item -------------------------->
             <a href="profile" class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;" >
               <!------------ Profile circular Image ---------------------->
-              <div class="row text-light p-2 navItem justify-content-center navProfile" style="align-items: center;">
-                  <div class="col Profile_border" style="width: 30px;">
-                    <div class="inner_profile"> 
+              <div class="row text-light p-2 navItem justify-content-center navProfile" style="align-items: center;width:90%">
+                  <div class="col Profile_border" style="width: 10%;">
+                    <div class="inner_profile" style="width: 100%;">  
                       <!---------------- Image to be changed ------------------>
                       <img class="profile_image" src="{{URL::asset('images/addidas.png')}}">
                     </div>
                   </div>
                   <!------------ Store Name to be changed ------------------->
                   <span class="col">Addidas</span>
+                  
               </div>
             </a>
 

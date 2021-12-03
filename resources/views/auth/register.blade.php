@@ -128,6 +128,10 @@
                             </div>
                             <span class="col-1 input-group-text">$</span>
                         </li>
+                        <label class="mt-4" for="image">Image</label>
+                      
+                        <input class="w-100 form-control"type="file" src="img_submit.gif" alt="Submit"name="image" id="image" >
+
                         <li class="mt-4">
                             <!------------------ Register button ---------------->
                             <button type="submit" class="btn btn-warning w-100" style="border:1px solid rgb(0,0,0,0.2); border-radius:7px; font-weight:bold">
