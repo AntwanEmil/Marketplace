@@ -12,8 +12,16 @@
   @endif
 
 <style>
-th, td {
-  border: 2px solid blue;
+    th{
+        background-color: #6495ED;   
+        border: 2px solid black;
+  width: 25%;
+  text-align: left;
+  vertical-align: top;   
+    }
+ td {
+    background-color: #DCDCDC;   
+  
   width: 25%;
   text-align: left;
   vertical-align: top;
@@ -38,6 +46,7 @@ table {
 @endforeach	   
 	</table>
 <br><br>
+
 
 
 
