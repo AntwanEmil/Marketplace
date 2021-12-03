@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -54,28 +54,45 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'balance' =>['required'],
-            'Storename' =>['required','string'],
-            'image' => ['required','string' , 'max:225']
+            'image' =>['required'],
+            'Storename' =>['required','string']
         ]);
     }
 
-    /**
+    /*
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create( array $data)
-    {
+    
 
-        
-        $user = User::create([
+    protected function create(array $data )
+    {
+        $filename = '';
+        if(request()->hasfile('image')){
+
+            $file =request()->file('image');
+            $exten = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $exten;
+            $file->move('uploads/users/',$filename);
+
+
+        }
+
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'balance' =>$data['balance'],
             'Storename'=>$data['Storename'],
-            'image'=>$data['image']
+           'image'=>$filename
+           
+
+
+
+
+
         ]);
         
           $file = request()->file('image');
@@ -86,4 +103,8 @@ class RegisterController extends Controller
         
         return $user;
     }
+
+
+
+
 }
