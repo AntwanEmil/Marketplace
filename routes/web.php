@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/search', 'App\Http\Controllers\ItemController@search');
 
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/editProfile', function () {return view('user.EditProfileScreen');});
