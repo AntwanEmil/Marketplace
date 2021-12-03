@@ -152,11 +152,9 @@
                               <div class="col-8" style="width:fit-content; font-size: 20px; padding-top:13px">Generate Report </div>
                               <div class="col-3 p-2 m-0 justify-content-center">
                                 <!------------------------------- Generate Report button ----------------------------->
-                                <form method="GET" action="{{route('reportController')}}" >
                                 <button class="btn sideNavHover" style="width: 50px;" type="submit">
                                   <img src="{{URL::asset('images/file-export-solid.svg')}}" style="width: 100%; height: 100%;">
                                 </button>
-                                          </form>
                               </div>
                             </div>
                         </div>
