@@ -36,11 +36,11 @@
             <div class="profile_contentBigContainer">
                 <div class="product_contentSmallContainer row justify-content-center">
                     <!------------------------------- Profile Image Container ------------------------->
-                    <div class="row p-2 justify-content-center" style="align-items: center; width:90%;">
+                    <div class="row p-2 justify-content-center" style="align-items: center; width:100%;">
                         <div class="Profile_border imag_container sidenNavProfileborder">
                             <div class="inner_profile"> 
                             <!---------------- Profile Image to be Changed ----------------->
-                            <img class="profile_image" src="{{URL::asset('images/addidas.png')}}">
+                            <img class="profile_image" src="{{asset('uploads/users/'. $user->image)}}"style= "width:100%;" >
                             </div>
                         </div>
                     </div>
