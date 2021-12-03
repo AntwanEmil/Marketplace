@@ -32,12 +32,16 @@
           <!----------------------------- End of Left items in Nav Bar -------------------------------------->
 
           <!-------------------------------------- Search Nav Bar ------------------------------------>
-          <div class="row col-xl-3 col-lg-3 col-md-5 searchNaveBar">
+         <!-------------------------------------- Search Nav Bar ------------------------------------>
+          <form class="d-flex" type="get" action="{{ url ('/search')}}">
+          <div class="row col-xl-3 col-lg-3 col-md-5 searchNaveBar" >
             <div class="col-9">
-              <input type="text" class="form-control" placeholder="Search" name="search">
+              <input type="text" class="form-control" placeholder="Search" name="search"  type="search">
             </div>
             <button class="col-2 btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
           </div>
+          </form>
+          <!-------------------------------------- End of Search Nav Bar ------------------------------------>
           <!-------------------------------------- End of Search Nav Bar ------------------------------------>
 
           <!-------------------------- Right items in Nav Bar ------------------------------------------->
