@@ -54,7 +54,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'balance' =>['required'],
-            'Storename' =>['required','string']
+            'Storename' =>['required','string'],
+            'image' => ['required','string' , 'max:225']
         ]);
     }
 
@@ -64,14 +65,25 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create( array $data)
     {
-        return User::create([
+
+        
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'balance' =>$data['balance'],
-            'Storename'=>$data['Storename']
+            'Storename'=>$data['Storename'],
+            'image'=>$data['image']
         ]);
+        
+          $file = request()->file('image');
+            $exten = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $exten;
+            $file->move('upload/users/', $filename);
+            $item->image = $filename;
+        
+        return $user;
     }
 }
