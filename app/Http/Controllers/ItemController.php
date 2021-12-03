@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\DB;
 class ItemController extends ProfileController
 {
     //
+     public function search()
+        {
+
+        $search_text=$_GET['search'];
+        $items=Item::where('name','LIKE','%'.$search_text.'%')->get();
+        return  view('Item',['Items'=>$items]);
+
+
+        }
     public function index()
     {
         return view('home.HomeScreen');
