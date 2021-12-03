@@ -12,7 +12,7 @@
   @endif
 
 <style>
-table, th, td {
+th, td {
   border: 2px solid blue;
   width: 25%;
   text-align: left;
