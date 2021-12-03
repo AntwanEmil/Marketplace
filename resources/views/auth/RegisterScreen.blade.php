@@ -68,16 +68,18 @@
         <main id="page" class="row m-0 p-0 justify-content-center" style="min-height: 86.5vh; align-items: center; display: none;">    
             <div class="col col-10 col-sm-8 col-md-7 col-lg-3 m-auto" style="padding:2% 0%;">
             <!------------------------------- Regiteration Form --------------------------------------------->
-                <form style="margin:0%; border:1px solid rgb(0,0,0,0.2); border-radius:10px">
-                    <ul style="list-style-type:none; padding:8% 6% 3% 6%; font-weight:bold">
+                <form style="margin:0%; border:1px solid rgb(0,0,0,0.2); border-radius:10px" method="POST" action="{{ route('register') }}">
+                                           @csrf
+
+                  <ul style="list-style-type:none; padding:8% 6% 3% 6%; font-weight:bold">
                         <li><h2>Create Account</h2></li>
                         <li>
-                            <label class="mt-4" for="name">User Name</label>
+                            <label class="mt-4" for="username">User Name</label>
                             <!------------------ Input of user name ---------------->
-                            <input class="w-100 form-control" name="Username" id="Username" ></input>
+                            <input class="w-100 form-control" name="username" id="username" ></input>
                         </li>
                         <li>
-                          <label class="mt-4" for="name">Store Name</label>
+                          <label class="mt-4" for="Storename">Store Name</label>
                           <!------------------ Input of store name ---------------->
                           <input class="w-100 form-control" name="Storename" id="Storename" ></input>
                         </li>
@@ -91,21 +93,31 @@
                             <!------------------ Input of password ---------------->
                             <input class="w-100 form-control" type="password" id="password" name="password" ></input>
                         </li>
+
+                      
+
                         <li>
-                            <label class="mt-4" for="rePassword">Re-Enter Password</label>
+                            <label class="mt-4" for="password-confirm">Re-Enter Password</label>
                             <!------------------ Input of password confirmation ---------------->
-                            <input class="w-100 form-control" type="password" id="rePassword" name="rePassword" ></input>
+                            <input class="w-100 form-control" type="password" id="password-confirm" name="password_confirmation" ></input>
                         </li>
-                        <li>
-                          <label class="mt-4" >Image</label>
-                          <!------------------ Input of store image ---------------->
-                          <input class="w-100 form-control"type="file" src="img_submit.gif" alt="Submit"name="image" id="image" ></input>
-                        </li>
+                        
+
+
+
+
+
+
+
+
+
+
+
                         <li class="row">
-                            <label class="col-12 mt-4" for="CashMoney">Initial Cash</label>
+                            <label class="col-12 mt-4" for="balance">Initial Cash</label>
                             <div class="col-11">
                                 <!------------------ Input of initial cash ---------------->
-                                <input class="w-100 form-control" type="number" min="0" id="CashMoney" name="CashMoney" placeholder="0.00$" ></input>
+                                <input class="w-100 form-control" type="number" min="0" id="balance" name="balance" placeholder="0.00$" ></input>
                             </div>
                             <span class="col-1 input-group-text">$</span>
                         </li>

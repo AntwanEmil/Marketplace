@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,7 +19,7 @@
               <i class="fa fa-bars"></i>
             </div>
             <div class="col-9" style="padding: 0 30px; margin-left:-20px">
-              <a href="signIn" class="navbar-brand text-light"  style="font-size:170%; font-weight:bold; line-height:70%; height:3rem">
+              <a href="login" class="navbar-brand text-light"  style="font-size:170%; font-weight:bold; line-height:70%; height:3rem">
                 <img src="images/logo.PNG" alt="logo" class="ml-2" style="object-fit:contain; height:3rem;" />
                 <span class="ml-2">Capital 
                 <span style="background:-webkit-linear-gradient(#1AC29C, #207DA0); -Webkit-background-clip:text; -Webkit-text-fill-color:transparent">store</span>
@@ -43,7 +44,7 @@
         <div id="mySidenav" class="row sidenav">
             <!------------ Logo of the Side Nav Bar ------------->
             <div style="margin-bottom: 45px; padding:0px;" >
-                <a href= "signIn" class="navbar-brand editedAnchor text-light"  style="font-size:170%; font-weight:bold; line-height:70%; height:3rem">
+                <a href= "login" class="navbar-brand editedAnchor text-light"  style="font-size:170%; font-weight:bold; line-height:70%; height:3rem">
                 <img src="images/logo.PNG" alt="logo" class="ml-2" style="object-fit:contain; height:3rem;" />
                 <span class="ml-2" style="color: #000913;">Capital 
                 <span style="background:-webkit-linear-gradient(#1AC29C, #207DA0); -Webkit-background-clip:text; -Webkit-text-fill-color:transparent">store</span>
@@ -68,7 +69,7 @@
         <main id="page" class="row m-0 p-0 justify-content-center" style="min-height: 86.5vh; align-items: center; display: none;">    
             <div class="col col-10 col-sm-8 col-md-7 col-lg-3 m-auto" style="padding:2% 0%;">
             <!------------------------------- SignIn Form --------------------------------------------->
-            <form style="margin:19% 0% 0% 0%;border:1px solid rgb(0,0,0,0.2);border-radius:10px" method="POST" action="{{url('login')}}">
+            <form style="margin:19% 0% 0% 0%;border:1px solid rgb(0,0,0,0.2);border-radius:10px" method="POST" action="{{ route('login') }}"">
               @csrf
                 <ul style="list-style-type:none;padding:8% 6%;font-weight:bold">
                     <li><h2>Sign-In</h2></li>
@@ -84,7 +85,7 @@
                     </li>
                     <li class="mt-4">
                         <!------------------ Sign in button ---------------->
-                        <button type="submit" class="btn btn-warning w-100" style="border:1px solid rgb(0,0,0,0.2);border-radius:7px;font-weight:bold">
+                        <button type="submit" class="btn btn-warning w-100" style="border:1px solid rgba(97, 54, 54, 0.2);border-radius:7px;font-weight:bold">
                             Sign-In
                         </button>
                     </li>
