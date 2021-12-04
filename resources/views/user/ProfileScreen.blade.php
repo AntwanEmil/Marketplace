@@ -25,7 +25,8 @@
                         <img src="{{URL::asset('images/store-solid.svg')}}" style="width: 25px;"> Profile </div>
                     <!-------------------------- Edit Profile Button ----------------------->
                     <div class="col-4"> 
-                        <a href="editProfile" class="btn btn-outline-light"><i class="fa fa-edit"></i></a>
+                    
+                        <a href="{{url('editProfile/'. $user->id)}}" class="btn btn-outline-light"><i class="fa fa-edit"></i></a>
                     </div>
                 </div>
                 <hr>
@@ -36,11 +37,11 @@
             <div class="profile_contentBigContainer">
                 <div class="product_contentSmallContainer row justify-content-center">
                     <!------------------------------- Profile Image Container ------------------------->
-                    <div class="row p-2 justify-content-center" style="align-items: center; width:100%;">
+                    <div class="row p-2 justify-content-center" style="align-items: center; width:90%;">
                         <div class="Profile_border imag_container sidenNavProfileborder">
                             <div class="inner_profile"> 
                             <!---------------- Profile Image to be Changed ----------------->
-                            <img class="profile_image" src="{{asset('uploads/users/'. $user->image)}}"style= "width:100%;" >
+                            <img class="profile_image" src="{{URL::asset('images/addidas.png')}}">
                             </div>
                         </div>
                     </div>
@@ -115,7 +116,7 @@
                                 <!------------- Price of the product to be changed ------------------>
                                 </span>{{$item->price}}</div>
                                 <!------------- Edit Product Button ------------------>
-                                <a href="editProduct" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
+                                <a href="editProduct/{{$item->id}}" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
                                 <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
                               </div>
                             </a>
