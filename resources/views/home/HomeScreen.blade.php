@@ -26,7 +26,7 @@
           <!---------------- Name of the product ------------>
           <div>{{$item->name}}</div>
           <!---------------- Name of the store ------------>
-          <div style="font-size:95%; color:gray">H&M</div>
+          <div style="font-size:95%; color:gray"></div>
           <div style="font-size:120; font-weight:bold; color:red" ><span>$
             <!---------------- Price of the product ------------>
             </span>{{$item->price}}

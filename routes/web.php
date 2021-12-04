@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', [ItemController::class, 'index']);
-  
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/profile', [ProfileController::class, 'index']);
-Route::get('/editProfile/{id}',[ProfileController::class, 'View']) ;
-Route::post('/updateProfile',[ProfileController::class, 'updatePro'])->name('updateProfile'); ;
+Route::get('/editProfile', function () {return view('user.EditProfileScreen');});
+Route::post('/updateProfile',[ProfileController::class, 'updatePro'])->name('updateProfile');
 
 Route::get('/ProductDetail/{id}', [ItemController::class, 'ViewItem']);
 Route::get('/myProdForSale/{id}', [ItemController::class, 'DetailForSale']);
@@ -29,7 +29,7 @@ Route::delete('/delete/{id}', [ItemController::class, 'destroy'])->name('product
 Route::get('/addProduct', function () {return view('products.AddProduct');});
 Route::post('/addProduct', [ItemController::class, 'store']);
 
- Route::get('/editProduct/{id}', [ItemController::class, 'View']);
+Route::get('/editProduct', function () {return view('products.EditProduct');});
 Route::post('/updateProduct/{id}', [ItemController::class, 'Update'])->name('updateProduct');
 //Route::get('/editProduct', function () {return view('products.EditProduct');});
 
@@ -40,6 +40,7 @@ Route::get('/error', function () {return view('components.Error');});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/report', [App\Http\Controllers\ReportController::class, 'index']);
 
 Auth::routes();
 
