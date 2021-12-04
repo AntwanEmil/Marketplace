@@ -32,12 +32,17 @@
           <!----------------------------- End of Left items in Nav Bar -------------------------------------->
 
           <!-------------------------------------- Search Nav Bar ------------------------------------>
-          <div class="row col-xl-3 col-lg-3 col-md-5 searchNaveBar">
+         <!-------------------------------------- Search Nav Bar ------------------------------------>
+          <div class="row col-xl-3 col-lg-3 col-md-5 searchNaveBar" >
+             <form class="d-flex" type="get" action="{{ url ('/search')}}">
             <div class="col-9">
-              <input type="text" class="form-control" placeholder="Search" name="search">
+              <input type="text" class="form-control" placeholder="Search" name="search"  type="search">
             </div>
             <button class="col-2 btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+             </form>
           </div>
+         
+          <!-------------------------------------- End of Search Nav Bar ------------------------------------>
           <!-------------------------------------- End of Search Nav Bar ------------------------------------>
 
           <!-------------------------- Right items in Nav Bar ------------------------------------------->
@@ -48,7 +53,7 @@
 
 
 
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;width:100%" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -66,15 +71,16 @@
             <!-------------------------- Profile item -------------------------->
             <a href="profile" class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;" >
               <!------------ Profile circular Image ---------------------->
-              <div class="row text-light p-2 navItem justify-content-center navProfile" style="align-items: center;">
-                  <div class="col Profile_border" style="width: 30px;">
-                    <div class="inner_profile"> 
+              <div class="row text-light p-2 navItem justify-content-center navProfile" style="align-items: center;width:90%">
+                  <div class="col Profile_border" style="width: 10%;">
+                    <div class="inner_profile" style="width: 100%;">  
                       <!---------------- Image to be changed ------------------>
                       <img class="profile_image" src="{{URL::asset('images/addidas.png')}}">
                     </div>
                   </div>
                   <!------------ Store Name to be changed ------------------->
                   <span class="col">Addidas</span>
+                  
               </div>
             </a>
 
@@ -151,9 +157,12 @@
                               <div class="col-8" style="width:fit-content; font-size: 20px; padding-top:13px">Generate Report </div>
                               <div class="col-3 p-2 m-0 justify-content-center">
                                 <!------------------------------- Generate Report button ----------------------------->
+                              <form action="report" method="post"> 
+                               @csrf
                                 <button class="btn sideNavHover" style="width: 50px;" type="submit">
                                   <img src="{{URL::asset('images/file-export-solid.svg')}}" style="width: 100%; height: 100%;">
                                 </button>
+                                              </form>
                               </div>
                             </div>
                         </div>

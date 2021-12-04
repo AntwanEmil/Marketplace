@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Item;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.HomeScreen');
+        $items = Item::select('items.*')->skip(0)->take(10)->get(); 
+        return view('home.HomeScreen' ,['items' => $items ]);
     }
 }
