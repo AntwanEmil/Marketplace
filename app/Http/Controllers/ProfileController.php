@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Models\Item;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
@@ -34,4 +37,37 @@ class ProfileController extends Controller
         }
     }
 
+    public function View($id)
+    {if (auth()->user()) {
+        $user = auth()->user();
+       
+
+            return view('user.EditProfileScreen', ['user' => $user]);
+        }
+     else {
+        return redirect()->back()->with('fail', 'You are not logged in');
+    }
+    }
+    public function updatePro(Request $request)
+    {      
+       if (auth()->user()) {
+            $user = auth()->user();     
+            $user->name = $request->input('name');
+            $user->Storename = $request->input('storename');
+            $user->email = $request->input('email');
+            $s=strlen($request->input('password'));
+            $pass=$request->input('password');
+           if($request->input('password')==$request->input('re')&& $pass!=null){
+               if($s>=8)
+          $user->password= Hash::make($request->input('password'));
+          else echo "password has to be more than 8 characters";
+           }
+          else
+          echo "Passwords don`t match";
+         }      
+      $user->save();
+    
+        return view('user.EditProfileScreen', ['user' => $user]); 
+    
+}
 }
