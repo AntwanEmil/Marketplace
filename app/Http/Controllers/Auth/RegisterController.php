@@ -95,13 +95,7 @@ class RegisterController extends Controller
 
         ]);
         
-          $file = request()->file('image');
-            $exten = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $exten;
-            $file->move('upload/users/', $filename);
-            $item->image = $filename;
-        
-        return $user;
+       
     }
 
 

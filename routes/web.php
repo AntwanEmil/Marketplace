@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', [ItemController::class, 'index']);
-
+  
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/editProfile/{id}',[ProfileController::class, 'View']) ;
 Route::post('/updateProfile',[ProfileController::class, 'updatePro'])->name('updateProfile'); ;
