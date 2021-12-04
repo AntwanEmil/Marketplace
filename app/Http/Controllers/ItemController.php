@@ -10,15 +10,6 @@ use Illuminate\Support\Facades\DB;
 class ItemController extends ProfileController
 {
     //
-     public function search()
-        {
-
-        $search_text=$_GET['search'];
-        $items=Item::where('name','LIKE','%'.$search_text.'%')->get();
-        return  view('Item',['Items'=>$items]);
-
-
-        }
     public function index()
     {
         return view('home.HomeScreen');
@@ -69,7 +60,57 @@ class ItemController extends ProfileController
         return redirect()->back()->with('fail', 'You are not logged in');
     }
     }
+    public function View($id)
+    {if (auth()->user()) {
+        $user = auth()->user();
+       
+        if (Item::where('id', $id)->exists()) {
+            $item = Item::where('id', $id)->first();
+            $store = User::where('id', $item->owner_id)->first();
 
+            return view('products.EditProduct', ['item' => $item, 'store' => $store]);
+        } else {
+            return redirect()->back()->with('fail', 'No such a product');
+        }
+    } else {
+        return redirect()->back()->with('fail', 'You are not logged in');
+    }
+    }
+    public function Update(Request $request, $id)
+    {      //echo"doeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeene";
+     //   echo $id;
+   //  item = item::find($id);
+     //   echo $request->input['name'];
+      //  echo $request->input('description');
+       if (auth()->user()) {
+            $user = auth()->user();
+        
+        if (Item::where('id', $id)->exists()) {
+            $item = Item::where('id', $id)->first();
+            $store = User::where('id', $item->owner_id)->first();
+        }
+           // $item=items::find($id);
+            $item->name = $request->input('name');
+           // $item->name= $request['name'];
+            $item->price = $request->input('price');
+            $item->amount = $request->input('amount');
+            $item->description = $request->input('description');
+            $item->owner_id = $user->id;
+
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $exten = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $exten;
+                $file->move('upload/items/', $filename);
+                $item->image = $filename;
+            }
+        }
+      $item->save();
+    
+        return view('products.EditProduct', ['item' => $item, 'store' => $store]); 
+    
+}
+    
     public function DetailForSale($id)
     {
         if (auth()->user()) {
