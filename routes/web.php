@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ItemController::class, 'index']);
 
 Route::get('/profile', [ProfileController::class, 'index']);
-Route::get('/editProfile', function () {return view('user.EditProfileScreen');});
+Route::get('/editProfile/{id}',[ProfileController::class, 'View']) ;
+Route::post('/updateProfile',[ProfileController::class, 'updatePro'])->name('updateProfile'); ;
 
 Route::get('/ProductDetail/{id}', [ItemController::class, 'ViewItem']);
 Route::get('/myProdForSale/{id}', [ItemController::class, 'DetailForSale']);
@@ -28,7 +29,9 @@ Route::delete('/delete/{id}', [ItemController::class, 'destroy'])->name('product
 Route::get('/addProduct', function () {return view('products.AddProduct');});
 Route::post('/addProduct', [ItemController::class, 'store']);
 
-Route::get('/editProduct', function () {return view('products.EditProduct');});
+ Route::get('/editProduct/{id}', [ItemController::class, 'View']);
+Route::post('/updateProduct/{id}', [ItemController::class, 'Update'])->name('updateProduct');
+//Route::get('/editProduct', function () {return view('products.EditProduct');});
 
 //Route::get('/signIn', function() {return view('auth.SignInScreen');});
 //Route::get('/register', function () {return view('auth.RegisterScreen');});
