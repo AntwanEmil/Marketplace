@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/search', 'App\Http\Controllers\ItemController@search');
+Route::get('/', [ItemController::class, 'index']);
 
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/editProfile/{id}',[ProfileController::class, 'View']) ;
@@ -41,7 +40,6 @@ Route::get('/error', function () {return view('components.Error');});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/report', [App\Http\Controllers\ReportController::class, 'index']);
 
 Auth::routes();
 
