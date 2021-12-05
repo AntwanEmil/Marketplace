@@ -31,10 +31,8 @@ Route::post('/addProduct', [ItemController::class, 'store']);
 
 Route::get('/editProduct', function () {return view('products.EditProduct');});
 Route::post('/updateProduct/{id}', [ItemController::class, 'Update'])->name('updateProduct');
-//Route::get('/editProduct', function () {return view('products.EditProduct');});
 
-//Route::get('/signIn', function() {return view('auth.SignInScreen');});
-//Route::get('/register', function () {return view('auth.RegisterScreen');});
+Route::get('/search', 'App\Http\Controllers\ItemController@search');
 
 Route::get('/error', function () {return view('components.Error');});
 Auth::routes();
