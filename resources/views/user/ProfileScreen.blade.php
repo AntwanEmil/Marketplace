@@ -41,7 +41,7 @@
                         <div class="Profile_border imag_container sidenNavProfileborder">
                             <div class="inner_profile"> 
                             <!---------------- Profile Image to be Changed ----------------->
-                            <img class="profile_image" src="{{URL::asset('images/addidas.png')}}">
+                            <img class="profile_image" src="{{asset('uploads/users/'. $user->image)}}">
                             </div>
                         </div>
                     </div>

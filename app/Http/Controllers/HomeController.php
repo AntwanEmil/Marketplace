@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Item;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
@@ -25,11 +23,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(auth()->user()){
        
-        $items = Item::select('items.*')->skip(0)->take(10)->get(); 
+       $user = auth()->user();
+        $items = Item::select('items.*')->skip(0)->take(10)->get();   
+        return view('home.HomeScreen' ,['items' => $items]);
+        }
+        else{
 
-        
-       // $users += User::select('users.*')->skip(0)->take(10)->get();       
-        return view('home.HomeScreen' ,['items' => $items ]);
+        }
     }
+
+   
 }
