@@ -14,10 +14,7 @@
       <header>
         <nav class="row navbar text-light m-0" style="background-color:#000913; height:4rem; padding:0 20px; z-index: 1; overflow: hidden;">
           <!---------------- Left items in Nav Bar ------------------->
-          <div class="row col-xl-3 col-lg-4 col-md-5 col-sm-6">
-            <div class="col-2 navItem leftNavItem" onclick="openNav()">
-              <i class="fa fa-bars"></i>
-            </div>
+          
             <div class="col-9" style="padding: 0 30px; margin-left:-20px">
               <a href="login" class="navbar-brand text-light"  style="font-size:170%; font-weight:bold; line-height:70%; height:3rem">
                 <img src="images/logo.PNG" alt="logo" class="ml-2" style="object-fit:contain; height:3rem;" />
@@ -26,6 +23,7 @@
                 </span>
               </a>
             </div>
+            
           </div>
           <!-------------------------- Right items in Nav Bar ------------------------------------------->
           <div class="col col-xl-3 col-lg-3 col-md-1 col-sm-5 d-flex flex-row-reverse RightItems" style="display:flex; overflow:hidden; max-height: 4rem;">

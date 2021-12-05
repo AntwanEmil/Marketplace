@@ -14,6 +14,7 @@
   <nav class="row navbar text-light m-0" style="background-color:#000913; height:4rem; padding:0 20px; z-index: 1; overflow: hidden;">
 
     <!----------------------------- Left items in Nav Bar -------------------------------------->
+   
     <div class="row col-xl-3 col-lg-4 col-md-5 col-sm-6">
       <!------------------ Side Bar Button ------------------------------->
       <div class="col-2 navItem leftNavItem" onclick="openNav()">
@@ -28,7 +29,9 @@
           </span>
         </a>
       </div>
-    </div>
+    
+   
+     </div>
     <!----------------------------- End of Left items in Nav Bar -------------------------------------->
 
     <!-------------------------------------- Search Nav Bar ------------------------------------>
