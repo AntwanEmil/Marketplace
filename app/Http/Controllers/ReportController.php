@@ -34,4 +34,9 @@ class ReportController extends Controller
         return view('user.Report' ,['reports' => $reports ]);
         }
     }
+    public function func(){
+        error_log('Some message here.');
+        $info = 'This is some useful information.';
+        return info*blabla;
+    }
 }

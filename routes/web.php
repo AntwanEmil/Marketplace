@@ -19,17 +19,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/profile', [ProfileController::class, 'index']);
-Route::get('/editProfile', function () {return view('user.EditProfileScreen');});
+Route::get('/editProfile/{id}',[ProfileController::class, 'View']) ;
 Route::post('/updateProfile',[ProfileController::class, 'updatePro'])->name('updateProfile');
 
 Route::get('/ProductDetail/{id}', [ItemController::class, 'ViewItem']);
 Route::get('/myProdForSale/{id}', [ItemController::class, 'DetailForSale']);
-Route::delete('/delete/{id}', [ItemController::class, 'destroy'])->name('products.ProductDetails');
+
 
 Route::get('/addProduct', function () {return view('products.AddProduct');});
 Route::post('/addProduct', [ItemController::class, 'store']);
 
-Route::get('/editProduct', function () {return view('products.EditProduct');});
+Route::get('/editProduct/{id}', [ItemController::class, 'View']);
 Route::post('/updateProduct/{id}', [ItemController::class, 'Update'])->name('updateProduct');
 //Route::get('/editProduct', function () {return view('products.EditProduct');});
 
@@ -40,7 +40,7 @@ Route::get('/error', function () {return view('components.Error');});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/report', [App\Http\Controllers\ReportController::class, 'index']);
+Route::post('/report', [App\Http\Controllers\ReportController::class, 'index' ]);
 
 Auth::routes();
 
