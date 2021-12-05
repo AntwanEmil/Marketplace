@@ -141,4 +141,13 @@ class ItemController extends ProfileController
 
     }
 
+    public function search()
+    {
+
+    $search_text=$_GET['search'];
+    $items=Item::where('name','LIKE','%'.$search_text.'%')->get();
+    return  view('home.HomeScreen',['items'=>$items]);
+
+
+    }
 }

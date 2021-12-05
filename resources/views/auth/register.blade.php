@@ -20,10 +20,7 @@
       <header>
         <nav class="row navbar text-light m-0" style="background-color:#000913; height:4rem; padding:0 20px; z-index: 1; overflow: hidden;">
           <!---------------- Left items in Nav Bar ------------------->
-          <div class="row col-xl-3 col-lg-4 col-md-5 col-sm-6">
-            <div class="col-2 navItem leftNavItem" onclick="openNav()">
-              <i class="fa fa-bars"></i>
-            </div>
+         
             <div class="col-9" style="padding: 0 30px; margin-left:-20px">
               <a href= "register" class="navbar-brand text-light"  style="font-size:170%; font-weight:bold; line-height:70%; height:3rem">
                 <img src="images/logo.PNG" alt="logo" class="ml-2" style="object-fit:contain; height:3rem;" />
@@ -83,30 +80,42 @@
                         <li>
                             <label class="mt-4" for="name">User Name</label>
                             <!------------------ Input of user name ---------------->
-                            <input class="w-100 form-control" name="name" id="name" ></input>
+                            <input class="w-100 form-control" name="name" id="name" value="{{ old('name') }}" required>
                         </li>
                         <li>
                           <label class="mt-4" for="Storename">Store Name</label>
                           <!------------------ Input of store name ---------------->
-                          <input class="w-100 form-control" name="Storename" id="Storename" ></input>
+                          <input class="w-100 form-control" name="Storename" id="Storename" value="{{ old('Storename') }}" required >
                         </li>
                         <li>
                             <label class="mt-4" for="email">Email</label>
                             <!------------------ Input of user email ---------------->
-                            <input class="w-100 form-control" type="email" name="email" id="email" ></input>
-                        </li>
+                            <input class="w-100 form-control  @error('email') is-invalid @enderror" type="email" name="email" id="email" value="{{ old('email') }}" required>
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        
+                          </li>
                         <li>
                             <label class="mt-4" for="password">Password</label>
                             <!------------------ Input of password ---------------->
-                            <input class="w-100 form-control" type="password" id="password" name="password" ></input>
-                        </li>
+                            <input class="w-100 form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" autocomplete="new-password" required>
+                       
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                          </li>
 
                       
 
                         <li>
                             <label class="mt-4" for="password-confirm">Re-Enter Password</label>
                             <!------------------ Input of password confirmation ---------------->
-                            <input class="w-100 form-control" type="password" id="password-confirm" name="password_confirmation" ></input>
+                            <input class="w-100 form-control" type="password" id="password-confirm" name="password_confirmation"  autocomplete="new-password" required>
                         </li>
                         
 
@@ -114,21 +123,14 @@
                         <li>
                           <label class="mt-4" for="image">Image</label>
                           <!------------------ Input of store image ---------------->
-                          <input class="w-100 form-control"type="file" src="img_submit.gif" alt="Submit"name="image" id="image" ></input>
+                          <input class="w-100 form-control"type="file" src="img_submit.gif" alt="Submit"name="image" id="image" value="{{ old('image') }}" required>
                         </li>
-
-
-
-
-
-
-
 
                         <li class="row">
                             <label class="col-12 mt-4" for="balance">Initial Cash</label>
                             <div class="col-11">
                                 <!------------------ Input of initial cash ---------------->
-                                <input class="w-100 form-control" type="number" min="0" id="balance" name="balance" placeholder="0.00$" ></input>
+                                <input class="w-100 form-control" type="number" min="0" id="balance" name="balance" placeholder="0$" value="{{ old('balance') }}" required>
                             </div>
                             <span class="col-1 input-group-text">$</span>
                         </li>
