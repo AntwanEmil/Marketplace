@@ -63,6 +63,7 @@
         <!------------------------ End of loading div ---------------------------->
 
 
+       
         <!-------------------------- Page content after loading ------------------------------------------------>
         <main id="page" class="row m-0 p-0 justify-content-center" style="min-height: 86.5vh; align-items: center; display: none;">    
             <div class="col col-10 col-sm-8 col-md-7 col-lg-3 m-auto" style="padding:2% 0%;">
@@ -74,13 +75,23 @@
                     <li>
                         <label class="mt-4" for="email">Email</label>
                         <!------------------ Input of Email ---------------->
-                        <input class="w-100 form-control" type="email" name="email" id="email" ></input>
-                    </li>
+                        <input class="w-100 form-control @error('email') is-invalid @enderror" type="email" name="email" id="email" value="{{ old('email') }}" required>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                      </li>
                     <li>
                         <label class="mt-4" for="password">Password</label>
                         <!------------------ Input of password ---------------->
-                        <input class="w-100 form-control" type="password" id="password" name="password" ></input>
-                    </li>
+                        <input class="w-100 form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" required>
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                      </li>
                     <li class="mt-4">
                         <!------------------ Sign in button ---------------->
                         <button type="submit" class="btn btn-warning w-100" style="border:1px solid rgba(97, 54, 54, 0.2);border-radius:7px;font-weight:bold">
