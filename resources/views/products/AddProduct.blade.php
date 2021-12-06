@@ -22,31 +22,31 @@
             <li>
                 <label class="mt-4" for="name">Name</label>
                 <!------------------- input of product name  ------------------>
-                <input class="w-100 form-control" name="name" id="name" >
+                <input class="w-100 form-control" name="name" id="name" required>
             </li>
             <li>
                 <label class="mt-4" for="image">Image</label>
                 <!------------------- input of product image  ------------------>
-                <input class="w-100 form-control"type="file" src="img_submit.gif" alt="Submit"name="image" id="image" >
+                <input class="w-100 form-control"type="file" src="img_submit.gif" alt="Submit"name="image" id="image" required>
                 
                 <li class="row">
                 <label class="col-12 mt-4" for="price">Price</label>
                 <div class="col-12">
                   <!------------------- input of product price  ------------------>
-                    <input class="w-100 form-control" type="number" min="0" id="price" name="price" placeholder="0.00$" >
+                    <input class="w-100 form-control" type="number" min="0" id="price" name="price" placeholder="0.00$" required>
                 </div>
             </li>
             <li class="row">
               <!------------------- Select a product quantity  ------------------>
               <label class="col-6 mt-4" for="amount">Available Quantity:</label>
               <div class="col-12">
-                  <input class="w-100 form-control" type="number" min="0" id="price" name="amount" placeholder="0" >
+                  <input class="w-100 form-control" type="number" min="0" id="price" name="amount" placeholder="0" required>
               </div>
             </li>
             <li class="row" style="margin:15px 0px;">
               <label for="description">Description</label>
               <!------------------- input of product description  ------------------>
-              <textarea class="w-100 form-control" id="description" name="description" rows="3"></textarea>
+              <textarea class="w-100 form-control" id="description" name="description" rows="3" required></textarea>
             </li>
             <li class="row">
               <div class=>

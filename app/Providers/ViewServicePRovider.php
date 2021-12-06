@@ -28,7 +28,7 @@ class ViewServiceProvider extends ServiceProvider
         // Using class based composers...
         View::composer('components.Layout', function($view){
             $user = auth()->user();
-            $stores = User::select('users.*')->get();   
+            $stores = User::select('users.*')->where('id','!=',$user->id)->get();   
             return $view->with('user',$user)->with('stores', $stores);
                 });
 
