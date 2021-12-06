@@ -104,17 +104,15 @@ class ItemController extends ProfileController
     }
     }
     public function Update(Request $request, $id)
-    {      //echo"doeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeene";
-     //   echo $id;
-   //  item = item::find($id);
-     //   echo $request->input['name'];
-      //  echo $request->input('description');
+    {      
        if (auth()->user()) {
             $user = auth()->user();
         
         if (Item::where('id', $id)->exists()) {
             $item = Item::where('id', $id)->first();
-            $store = User::where('id', $item->owner_id)->first();
+        }
+        else{
+            return redirect('/profile')->with('fail','No such an item');
         }
            // $item=items::find($id);
             $item->name = $request->input('name');
@@ -125,6 +123,7 @@ class ItemController extends ProfileController
             $item->owner_id = $user->id;
 
             if ($request->hasFile('image')) {
+              
                 $file = $request->file('image');
                 $exten = $file->getClientOriginalExtension();
                 $filename = time() . '.' . $exten;
@@ -138,8 +137,12 @@ class ItemController extends ProfileController
       $this->update_report($op, $item,$user);
 =======
         
+<<<<<<< HEAD
 >>>>>>> a92d4bde4f3794abe95e1849c9e11b2881c8e687
         return view('products.EditProduct', ['item' => $item, 'store' => $store]); 
+=======
+        return redirect('/profile')->with('success', "The item is updated successfully"); 
+>>>>>>> b2c4d861e77673037b64047a4028a6271ae3b09b
     
 }
     
