@@ -50,7 +50,10 @@ class ItemController extends ProfileController
         $user = auth()->user();
 
         if (Item::where('id', $id)->exists()) {
-            $item = Item::where('id', $id)->first();
+            $item = Item::where('items.id', $id)
+            ->join('purshased_items','purshased_items.item_id','=','items.id')
+            ->select('items.*', 'purshased_items.amount as qty')
+            ->first();
             $store = User::where('id', $item->owner_id)->first();
 
             return view('products.ProductDetails', ['item' => $item, 'store' => $store]);
@@ -62,7 +65,8 @@ class ItemController extends ProfileController
     }
     }
     public function View($id)
-    {if (auth()->user()) {
+    {
+        if (auth()->user()) {
         $user = auth()->user();
        
         if (Item::where('id', $id)->exists()) {
@@ -149,4 +153,23 @@ class ItemController extends ProfileController
 
 
     }
+
+    public function ViewForBuy($id){
+        if (auth()->user()) {
+           
+           
+            if (Item::where('id', $id)->exists()) {
+                $item = Item::where('items.id', '=',$id)->join('users','items.owner_id','=','users.id')
+                        ->select('items.*','users.Storename')->get()->first();
+                $balance = User::select('users.*')->where('id', '=', auth()->user()->id)->first();
+                return view('products.BuyProduct', ['item' => $item, 'balance'=>$balance]);
+            } else {
+                return redirect()->back()->with('fail', 'No such a product');
+            }
+        } else {
+            return redirect()->back()->with('fail', 'You are not logged in');
+        }
+    }
+
+    
 }

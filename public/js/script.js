@@ -19,12 +19,25 @@ function closeNav() {
 }
 
 function Buying_function(){
+
+  var inp = document.getElementById('qty');
+  if(inp.value.length != 0){
+  var p = document.getElementById('p_qty');
+  p.innerHTML =" Quantity: " + inp.value;
+
+  var qty = document.getElementById('qty');
+  var hidden = document.getElementById('hidden');
+  hidden.value = qty.value;
   document.getElementById("darkest_div").style.display = "block";
   document.getElementById("PopUpContent").style.display = "block";
   document.getElementById("ConfirmationGIF").style.display = "none";
   setTimeout(function(){
     document.getElementById("Buyying_setting_container").style.transform = "translateY(0%)";
   },100);
+}
+else{
+  alert("You have to specify the qauntity");
+}
 }
 
 function Confirm_Buying_function(){

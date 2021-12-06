@@ -24,7 +24,7 @@
         <!-- Product Price -->
         <div style="font-weight:bold" >Price: <span style="font-size:130%; color:red">${{$item->price}}</span></div>
         <!-- Avialable Quantity -->
-        <div style="font-weight:bold" >Available quantity: <span style="font-size:130%; color:rgb(21, 0, 112)">{{$item->amount}}</span> Pieces</div>
+        <div style="font-weight:bold" >Amount purshased: <span style="font-size:130%; color:rgb(21, 0, 112)">{{$item->qty}}</span> Pieces</div>
         <!--Product description-->
         <div style="font-weight:bold">Description: {{$item->description}}</div>
         <div>Nice one,</div>

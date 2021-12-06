@@ -1,57 +1,72 @@
 <x-Layout>
 
   @section('content')
+  @if(session('fail'))
+  <div class="alert alert-danger">{{session('fail')}}</div>
 
+  @elseif(session('success'))
+  <div class="alert alert-success">{{session('success')}}</div>
+
+@endif
   <!------------- Product Image and link ------------->
   <div class="row m-0" style="padding:0.5% 0% 3% 0%">
     <!------------- link to the homepage ------------->   
     <div class="col-12 m-0" ><a href="/">&#8592; Back to HomeScreen</a></div>
     <!-- Product Image -->
-    <div class="col-lg-5 col-md-5 col-sm-12 col-12 mb-2"><img src="images/shirt1.jpg"img-fluid w-100"></img></div>
+    <div class="col-lg-5 col-md-5 col-sm-12 col-12 mb-2"><img src="{{asset('upload/items/'. $item->image)}}"img-fluid w-100 style="width: 50%; height:90%;" ></div>
     <!-- Dexcription Container -->
     <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-3">
         <!-- Product Name -->
-        <div> <span style="font-size:140%; font-weight:bold">Shirt</span></div>
+        <div> <span style="font-size:140%; font-weight:bold">{{$item->name}}</span></div>
         <!-- Product Owner -->
-        <div style="font-weight:bold" >Max Fashion</div>
+        <div style="font-weight:bold" >{{$item->Storename}}</div>
         <!-- Product Price -->
-        <div style="font-weight:bold" >Price: <span style="font-size:130%; color:red">$50</span></div>
+        <div style="font-weight:bold" >Price: <span style="font-size:130%; color:red">${{$item->price}}</span></div>
         <!-- Avialable Quantity -->
-        <div style="font-weight:bold" >Available quantity: <span style="font-size:130%; color:rgb(21, 0, 112)">20</span> Pieces</div>
+        <div style="font-weight:bold" >Available quantity: <span style="font-size:130%; color:rgb(21, 0, 112)">{{$item->amount}}</span> Pieces</div>
         <!--Product description-->
-        <div style="font-weight:bold">Description: long-sleeved shirts</div>
+        <div style="font-weight:bold">Description: {{$item->description}}</div>
         <div>Nice one,</div>
         <div>Awesome!!</div>
     </div>
     <!-- Buying Cart -->
+    
     <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+      
         <div style="border:1px solid rgb(0,0,0,0.2); border-radius:10px; padding:6% 4%; font-weight:bold">
-            <div class="mb-2" >Price: $50</div>
-            <div class="mb-2" >Status: in stock</div>
-            <div class="mb-3">Qty:
-            <select class="custom-select w-25 ml-2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-            </select>
-        </div>
-            <form>
-                <submit class="btn btn-warning w-100 mb-3" onclick="Buying_function()" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
+          
+            <div class="mb-2" >Price: {{$item->price}}</div>
+            <div class="mb-2" >Status: 
+                @if ($item->amount != 0)
+                    in stock
+                </div>
+                <div class="mb-3">
+                <label for="amount">Qty:</label>
+                <input type="number" max="{{$item->amount}}" name="qty" id="qty" required>
+               
+           
+                </div>
+            
+                <button class="btn btn-warning w-100 mb-3" onclick="Buying_function()" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
                     Buy
-                </submit>
-                <submit class="btn btn-outline-success w-100 mb-3" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
-                    Add to my store
-                </submit>
-                <button class="btn btn-outline-danger w-100 mb-3" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
-                    Delete from my store
                 </button>
-            </form>   
+            
+                <button class="btn btn-outline-success w-100 mb-3" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
+                    Add to my store
+                </button>
+            
         </div>
+         
+            @else 
+            <div style="border:1px solid rgb(0,0,0,0.2); border-radius:10px; padding:6% 4%; font-weight:bold">
+                <div class="mb-2" >Price: {{$item->price}}</div>
+                <div class="mb-2" >Status: 
+                   
+                        out of stock
+                    </div>
+            </div> 
+            @endif
+      
     </div>       
 </div>
 
@@ -64,42 +79,42 @@
             </div>
             <!-- Conent Div -->
             <div  id="PopUpContent" class="PopUpContent">
+                <form action="{{route('BuyProduct')}}" method="POST">
+                    @csrf
                 <!-------------- Product Info ----------------->
                 <div class="row justify-content-between m-0 p-0" style = "font-weight: bolder; font-size: large">
                     <!-- Product Name -->
-                    <p class="col-3">Shirt</p>
+                    <p class="col-3">{{$item->name}}</p>
                     <!-- 1 piece Price -->
-                    <p class="col-2">$50.00</p>
+                    <p class="col-2">${{$item->price}}</p>
                 </div>
                 <!-- Product Owner -->
-                <p >MAX Fashion</p>
+                <p >{{$item->Storename}}</p>
                 <!-- Product quantity -->
-                <p>Quantity: 1 Piece</p>
-                <!-- Process valid time-->
-                <p>Validity - 30 Days</p>
+                <p id="p_qty"></p>
+                <input type="hidden" name="amount" id = "hidden">
+                <input type="hidden" name="item_id" id="" value="{{$item->id}}">
+                
                 <hr>
                 <!-- Middle content -->
                 <div style="text-align: center; margin-top: 25px;">
-                    <p style="font-size: 20px;">Total Payable</p>
-                    <!-- Total Payable -->
-                    <p style="font-size: 35px; margin:10px 0px 25px 0px; color:#207DA0">$10.00</p>
                     <!-- Current Cash value -->
-                    <p style="font-size: 20px;">Available Wallet Balance: <span style="color: rgb(248, 59, 106)">$220.02</span></p>
+                    <p style="font-size: 20px;">Available Wallet Balance: <span style="color: rgb(248, 59, 106)">${{$balance->balance}}</span></p>
                 </div>
                 <!-- Buttons -->
                 <div class="row justify-content-between p-0" style="margin:80px 0px 20px 0px;">
                     <div class="col-6">
-                        <form>
-                            <submit class="col-5b btn btn-outline-danger w-100" onclick="Cancel_Buying_function()">
+                       
+                            <button class="col-5b btn btn-outline-danger w-100" type = "button" onclick="Cancel_Buying_function()">
                                 Cancel
-                            </submit>
-                        </form> 
+                            </button>
+                         
                     </div>
                     <div class="col-6">
-                        <form>
-                            <submit class="col-5 btn btn-primary w-100" onclick="Confirm_Buying_function()">
+                       
+                            <button class="col-5 btn btn-primary w-100" type="submit">
                                 Confirm
-                            </submit>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -115,4 +130,7 @@
 
 
 @endsection
+
+
 </x-Layout>
+

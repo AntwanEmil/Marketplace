@@ -67,7 +67,7 @@
                 </form>
 
                                 <!-------------------------- Profile item -------------------------->
-      <a href="profile" class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;" >
+      <a href="/profile" class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;" >
         <!------------ Profile circular Image ---------------------->
         <div class="row text-light p-2 navItem justify-content-center navProfile" style="align-items: center;width:90%">
             <div class="col Profile_border" style="width: 10%;">
@@ -138,7 +138,7 @@
                     </div>
 
                     <!--------------------------------- Profile ------------------------------>
-                    <a href="profile">
+                    <a href="/profile">
                     <div class="profile_contentBigContainer" style="padding:0; margin: 0;">
                         <div class="product_contentSmallContainer sideNavHover row justify-content-center m-2">
                             <!----------------------- Profile Image ----------------->
@@ -202,7 +202,7 @@
                             <!---------------------- Repeated Blocks of different stores  -------------------->
                             @foreach ($stores as $store)
                                  <!---------------------------- Store 1 -------------------------------->
-                            <a href="profile">
+                            <a href="/store/{{$store->id}}">
                               <div class="row sideNavHover p-2 justify-content-center" style="align-items: center; color: black;">
                                 <div class="col-5 Profile_border StoreProfileborder" style="width: 40px; height: 40px; margin-left: 15px;">
                                   <div class="inner_profile"> 

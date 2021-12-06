@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StoreController;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +37,11 @@ Route::get('/editProduct/{id}', [ItemController::class,'View']);
 Route::post('/updateProduct/{id}', [ItemController::class, 'Update'])->name('updateProduct');
 
 Route::get('/search', 'App\Http\Controllers\ItemController@search');
+
+Route::get('store/{id}', [StoreController::class,'show']);
+
+Route::get('/buyProduct/{id}',[ItemController::class,'ViewForBuy']);
+Route::post('/BuyProduct',[StoreController::class,'buyItem'])->name('BuyProduct');
 
 Route::get('/error', function () {return view('components.Error');});
 Auth::routes();
