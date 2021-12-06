@@ -30,8 +30,17 @@ class ReportController extends Controller
         if (auth()->user()) {
 
         $user = auth()->user();
-        $reports = Report::select('reports.*')->skip(0)->take(100)->where('reports.user_id', '=', $user->id)->get(); 
+        $reports = DB::table ('reports')->where ('user_id','=',$user->id)
+                ->join('transactions','reports.transaction_id','=','transactions.id')
+                ->select('transactions.date','transactions.description')
+                ->orderBy('transactions.date', 'desc')
+                ->get();
         return view('user.Report' ,['reports' => $reports ]);
         }
+    }
+    public function func(){
+        error_log('Some message here.');
+        $info = 'This is some useful information.';
+        return info*blabla;
     }
 }

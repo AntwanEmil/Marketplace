@@ -24,7 +24,7 @@ Route::get('/profile', [ProfileController::class, 'index']);
 
 Route::get('/ProductDetail/{id}', [ItemController::class, 'ViewItem']);
 Route::get('/myProdForSale/{id}', [ItemController::class, 'DetailForSale']);
-Route::delete('/delete/{id}', [ItemController::class, 'destroy'])->name('products.ProductDetails');
+
 
 Route::get('/addProduct', function () {return view('products.AddProduct');});
 Route::post('/addProduct', [ItemController::class, 'store']);
@@ -47,6 +47,6 @@ Route::get('/error', function () {return view('components.Error');});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/report', [App\Http\Controllers\ReportController::class, 'index']);
+Route::post('/report', [App\Http\Controllers\ReportController::class, 'index' ]);
 
 

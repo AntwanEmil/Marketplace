@@ -15,6 +15,30 @@ class ItemController extends ProfileController
     {
         return view('home.HomeScreen');
     }
+    public function update_report($op, $item,$user){
+        // adding description to transactions table //
+        $name = $item->name;
+        $description_add =  'a new product " ' . $name  .  ' " is added to your store with price= '.$item->price;
+        $description_update =  'your product: " ' . $name . ' " is updated ';
+
+        if($op == 'store'){
+            $transaction_id = DB::table('transactions')->insertGetId([
+                'description' => $description_add
+            ]);
+        }
+        else {
+            $transaction_id = DB::table('transactions')->insertGetId([
+                'description' => $description_update
+            ]);
+        }
+
+        // adding mapping info to reports table //
+        DB::table('reports')->insert(
+            ['transaction_id' => $transaction_id, 'user_id' => $user->id]
+        );
+
+
+    }
 
     public function store(Request $request)
     {
@@ -38,6 +62,8 @@ class ItemController extends ProfileController
             }
 
             $item->save();
+            $op  = 'store';
+            $this->update_report($op, $item,$user);
             return redirect('/profile')->with('success', 'The item is added successfully');
         } else {
             return redirect()->back()->with('fail', 'You are not logged in');
@@ -110,7 +136,9 @@ class ItemController extends ProfileController
             }
         }
       $item->save();
-        
+      $op  = 'update';
+      $this->update_report($op, $item,$user);
+
         return redirect('/profile')->with('success', "The item is updated successfully"); 
     
 }

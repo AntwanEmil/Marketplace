@@ -67,10 +67,14 @@
                 </form>
 
                                 <!-------------------------- Profile item -------------------------->
+<<<<<<< HEAD
       <a href="/profile" class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;" >
+=======
+      <a href="profile" class="row text-light p-2 justify-content-center" style="text-decoration: none; align-items: center;width:47%" >
+>>>>>>> 06805f20aada5a0a0102ab0b66d29e3e22b6e4a4
         <!------------ Profile circular Image ---------------------->
-        <div class="row text-light p-2 navItem justify-content-center navProfile" style="align-items: center;width:90%">
-            <div class="col Profile_border" style="width: 10%;">
+        <div class="row text-light p-2 navItem justify-content-center navProfile" style="align-items: center;width:100%">
+            <div class="col Profile_border">
               <div class="inner_profile" style="width: 100%;">  
                 <!---------------- Image to be changed ------------------>
                 <img class="profile_image" src="{{asset('uploads/users/'. $user->image)}}">
