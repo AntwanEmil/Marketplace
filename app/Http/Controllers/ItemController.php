@@ -132,17 +132,10 @@ class ItemController extends ProfileController
             }
         }
       $item->save();
-<<<<<<< HEAD
       $op  = 'update';
       $this->update_report($op, $item,$user);
-=======
-        
-<<<<<<< HEAD
->>>>>>> a92d4bde4f3794abe95e1849c9e11b2881c8e687
-        return view('products.EditProduct', ['item' => $item, 'store' => $store]); 
-=======
+
         return redirect('/profile')->with('success', "The item is updated successfully"); 
->>>>>>> b2c4d861e77673037b64047a4028a6271ae3b09b
     
 }
     

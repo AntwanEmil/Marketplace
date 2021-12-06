@@ -19,11 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/profile', [ProfileController::class, 'index']);
-<<<<<<< HEAD
-Route::get('/editProfile/{id}',[ProfileController::class, 'View']) ;
-Route::post('/updateProfile',[ProfileController::class, 'updatePro'])->name('updateProfile');
-=======
->>>>>>> b2c4d861e77673037b64047a4028a6271ae3b09b
 
 Route::get('/ProductDetail/{id}', [ItemController::class, 'ViewItem']);
 Route::get('/myProdForSale/{id}', [ItemController::class, 'DetailForSale']);
@@ -32,15 +27,11 @@ Route::get('/myProdForSale/{id}', [ItemController::class, 'DetailForSale']);
 Route::get('/addProduct', function () {return view('products.AddProduct');});
 Route::post('/addProduct', [ItemController::class, 'store']);
 
-<<<<<<< HEAD
-Route::get('/editProduct/{id}', [ItemController::class, 'View']);
-=======
 Route::get('/editProfile/{id}', [ProfileController::class,'View']);
 Route::post('/updateProfile',[ProfileController::class, 'updatePro'])->name('updateProfile');
 
 
 Route::get('/editProduct/{id}', [ItemController::class,'View']);
->>>>>>> b2c4d861e77673037b64047a4028a6271ae3b09b
 Route::post('/updateProduct/{id}', [ItemController::class, 'Update'])->name('updateProduct');
 
 Route::get('/search', 'App\Http\Controllers\ItemController@search');
