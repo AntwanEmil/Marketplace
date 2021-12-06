@@ -13,21 +13,19 @@
 
 <style>
     th{
-        background-color: #6495ED;   
-        border: 2px solid black;
+    background-color: #6495ED;   
+    border: 2px solid black;
   width: 25%;
   text-align: left;
   vertical-align: top;   
     }
  td {
-    background-color: #DCDCDC;   
-  
-  width: 25%;
+    background-color:#E8E8E8;   
+	width:0.1%;
+	border: 2px	solid white;
+   white-space: nowrap;
   text-align: left;
   vertical-align: top;
-}
-table {
-  width: 100%;
 }
     </style>
 
@@ -35,13 +33,13 @@ table {
 
   <table id="table">
 	    <tr>
-	        <th>Operation ID</th>
+	        <th>Date & Time (latest on top)</th>
 	        <th>Description</th>
 	    </tr>
 @foreach ($reports as $report)
 	    <tr>
-	        <td>{{$loop->iteration}}</td>
-	        <td>{{$report->transaction_id}}</td>
+	        <td>{{$report->date}}</td>
+	        <td>{{$report->description}}</td>
 	    </tr>
 @endforeach	   
 	</table>
