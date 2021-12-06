@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -106,7 +107,7 @@ class ItemController extends ProfileController
             }
         }
       $item->save();
-    
+        
         return view('products.EditProduct', ['item' => $item, 'store' => $store]); 
     
 }
@@ -114,8 +115,7 @@ class ItemController extends ProfileController
     public function DetailForSale($id)
     {
         if (auth()->user()) {
-            $user = auth()->user();
-
+            
             if (Item::where('id', $id)->exists()) {
                 $item = Item::where('id', $id)->first();
                 $store = User::where('id', $item->owner_id)->first();
@@ -131,13 +131,13 @@ class ItemController extends ProfileController
 
     public function destroy($id)
     {
-        //     echo "HIIIiiiiiiiiiiiiiiiiiiii" . $id;
+     
         DB::table('purshased_items')->where('item_id', $id)->delete();
 
         DB::table('sellers')->where('item_id', $id)->delete();
         Item::destroy($id);
-        //echo "WELLLLLLLLLLLLLLLLLLLLL";
-        return redirect('/profile')->with('success', 'The item is added successfully');
+       
+        return redirect('/profile')->with('success', 'The item is deleted successfully');
 
     }
 
