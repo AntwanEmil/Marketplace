@@ -17,7 +17,7 @@
 
 
     <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 27rem; margin:2% 0%;">
-      <a href="buyProduct">
+      <a href="/buyProduct/{{$item->id}}">
         <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
           <div style="height:67%;">
           <!---------------- Image of the product ------------>

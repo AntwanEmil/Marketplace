@@ -50,9 +50,14 @@
                 <button class="btn btn-warning w-100 mb-3" onclick="Buying_function()" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
                     Buy
                 </button>
-            
+                <!-------------------------------------------------->
+            <!--FOR BACK END: This button must be in a separate form , with all data needed are inside 
+                the form to send it to back, you could type the needed data in hidden input,
+                 as [[[[[[[[[[[[[[[[in line 97 and 98 ]]]]]]]]]]]]]]]]]]] -->
+            <!-------------------------------------------------->
+
                 <button class="btn btn-outline-success w-100 mb-3" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
-                    Add to my store
+                    Add to my store for sale
                 </button>
             
         </div>
