@@ -29,7 +29,7 @@ class HomeController extends Controller
         $orig_items = Item::select('items.*')->where('owner_id','!=',$user->id)
         ->join('users', 'items.owner_id','=','users.id')
         ->select ('items.*' , 'users.Storename')
-        ->skip(0)->take(5)->get();  
+        ->get();  
         
         
         // $items = DB::table('sellers')
@@ -37,7 +37,7 @@ class HomeController extends Controller
         // ->join('users', 'sellers.seller_id','=','users.id')
         // ->select ('items.*' , 'users.Storename')->where('items.owner_id','!=',$user->id)
         // ->get();
-        return view('home.HomeScreen' ,['orig_items'=>$orig_items]);
+        return view('home.HomeScreen' ,['items'=>$orig_items]);
         }
         else{
             return redirect()->back()->with('fail',"You are not logged in");

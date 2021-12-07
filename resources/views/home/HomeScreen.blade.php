@@ -13,7 +13,7 @@
 
   <div class="row m-0" style="padding: 0 7% 4% 7%">
 
-  @foreach ($orig_items as $item)
+  @foreach ($items as $item)
 
 
 <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 27rem; margin:2% 0%;">
