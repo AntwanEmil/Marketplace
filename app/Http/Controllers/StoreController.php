@@ -28,15 +28,28 @@ class StoreController extends Controller
 
         if($op == 'buyItem'){
             $description_add =  'you purchased a(an) "' . $name  .  '"  with price= '.$item->price.'$'.', from store: '.$store->Storename;
+            $description_add_recipient =  $user->name.' purchased your item "' . $name  .  '"  with price= '.$item->price.'$';
+            $recipient_transaction_id = DB::table('transactions')->insertGetId([
+                'description' => $description_add_recipient
+            ]);
             $transaction_id = DB::table('transactions')->insertGetId([
                 'description' => $description_add
             ]);
+
+
         }
         else if ($op == 'addItem'){
             $description_add =  'you added a(an) "' . $name  .  '"  with price= '.$item->price.'$ to be sold in your store'.', from store: '.$store->Storename;
+            $description_add_recipient = 'store:'.$user->Storename.'added your item "' . $name  .  '"  with price= '.$item->price.'$'.'to be sold in his store';
+           
             $transaction_id = DB::table('transactions')->insertGetId([
                 'description' => $description_add
             ]);
+
+            $recipient_transaction_id = DB::table('transactions')->insertGetId([
+                'description' => $description_add_recipient
+            ]);
+
         }
         else if ($op == 'removeItem'){
             $description_add =  'you removed a(an) "' . $name  .  '"  with price= '.$item->price.'$ from your store';
@@ -47,9 +60,15 @@ class StoreController extends Controller
         else if ($op == 'transferCash'){
 
             $description_add =  'you transfered amount of cash =' .$transfered_cash.'$ from your store to store: "'.$store->Storename.'" that is owned by: '.$store->name;
+            $description_add_recipient = 'store:'.$user->Storename.' who is owned by '.$user->name .' transferred amount of cash= '.$transfered_cash.'$ to you (congrats)';
+
             $transaction_id = DB::table('transactions')->insertGetId([
                 'description' => $description_add
             ]);
+            $recipient_transaction_id = DB::table('transactions')->insertGetId([
+                'description' => $description_add_recipient
+            ]);
+
             DB::table('transferred_cash')->insert([ 'from_user_id'=>$user->id, 'to_user_id'=>$store->id, 'amount'=>$transfered_cash ]);
         }
 
@@ -57,7 +76,11 @@ class StoreController extends Controller
         DB::table('reports')->insert(
             ['transaction_id' => $transaction_id, 'user_id' => $user->id]
         );
-
+        if($op != 'removeItem'){
+        DB::table('reports')->insert(
+            ['transaction_id' => $recipient_transaction_id, 'user_id' => $store->id]
+        );
+         }
 
     }
 
