@@ -30,7 +30,7 @@ class HomeController extends Controller
         return view('home.HomeScreen' ,['items' => $items]);
         }
         else{
-
+            return redirect()->back()->with('fail',"You are not logged in");
         }
     }
 

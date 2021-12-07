@@ -190,7 +190,16 @@ class ItemController extends ProfileController
                 $item = Item::where('items.id', '=',$id)->join('users','items.owner_id','=','users.id')
                         ->select('items.*','users.Storename')->get()->first();
                 $balance = User::select('users.*')->where('id', '=', auth()->user()->id)->first();
-                return view('products.BuyProduct', ['item' => $item, 'balance'=>$balance]);
+                $user = auth()->user();     
+                $seller = DB::table('sellers')->select('sellers.*')->where([['item_id','=',$item->id] , ['seller_id','=',$user->id]])->first();
+                $owner =  DB::table('sellers')->select('sellers.*')->where([['item_id','=',$item->id] , ['owner_id','=',$user->id]])->first();
+                $is_sold = false;
+                $is_owned = false;
+
+                if ($seller != null) $is_sold = true;
+                if ($owner != null) $is_owned = true;
+
+                return view('products.BuyProduct', ['item' => $item, 'balance'=>$balance ,'is_sold'=>$is_sold , 'is_owned'=>$is_owned,'seller'=>$seller , 'owner'=>$owner,'user'=>$user]);
             } else {
                 return redirect()->back()->with('fail', 'No such a product');
             }

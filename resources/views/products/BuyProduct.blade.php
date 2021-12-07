@@ -26,8 +26,8 @@
         <div style="font-weight:bold" >Available quantity: <span style="font-size:130%; color:rgb(21, 0, 112)">{{$item->amount}}</span> Pieces</div>
         <!--Product description-->
         <div style="font-weight:bold">Description: {{$item->description}}</div>
-        <div>Nice one,</div>
-        <div>Awesome!!</div>
+        <div></div>
+        <div></div>
     </div>
     <!-- Buying Cart -->
     
@@ -55,11 +55,32 @@
                 the form to send it to back, you could type the needed data in hidden input,
                  as [[[[[[[[[[[[[[[[in line 97 and 98 ]]]]]]]]]]]]]]]]]]] -->
             <!-------------------------------------------------->
-
-                <button class="btn btn-outline-success w-100 mb-3" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
+            @if (! $is_sold )
+            <form action="{{route('AddProduct')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="item_id" id="" value="{{$item->id}}">
+                <button class="btn btn-outline-success w-100 mb-3"  style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
                     Add to my store for sale
                 </button>
-            
+                </form>
+            @else
+
+                @if( $is_owned == true )
+                <p>you own this item</p>
+
+                @elseif(! $is_owned )
+                <form action="{{route('removeSoldItem')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="item_id" id="" value="{{$item->id}}">
+                <button class="btn btn-outline-success w-100 mb-3"  style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
+                    Remove Item from your shop
+                </button>
+                </form>
+
+                @endif
+
+
+            @endif
         </div>
          
             @else 

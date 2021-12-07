@@ -170,7 +170,7 @@
                   <div class="row justify-content-center" id="Added2profileClass" style="display:none">
                       <!--------------- The folloing are repeated blocks of different products ------------->
 
-                        @foreach ($purchased as $item)
+                        @foreach ($selled as $item)
                             
                                        
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
@@ -188,7 +188,14 @@
                               <!------------- Price of the product to be changed ------------------>
                               </span>{{$item->price}}</div>
                               <!------------- Edit Product Button ------------------>
-                              <a href="/productDetails" class="btn btn-outline-secondary" style="width: 100%;">Product Details</a>
+                              <form action="{{route('removeSoldItem')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="item_id" id="" value="{{$item->id}}">
+                            <button class="btn btn-outline-success w-100 mb-3"  style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
+                                Remove Item from your shop
+                            </button>
+                            </form>
+                             
                               <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
                             </div>
                           </a>

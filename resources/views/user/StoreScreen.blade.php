@@ -1,8 +1,13 @@
 <x-Layout>
 
   @section('content')
-      
+  @if(session('fail'))
+  <div class="alert alert-danger">{{session('fail')}}</div>
 
+  @elseif(session('success'))
+  <div class="alert alert-success">{{session('success')}}</div>
+
+@endif
 <!---------------------------------------------------- Store Page Container ------------------------------------------------->
 <!-------- This div Contains two vertical divs of the page (Profile, Products) and PopUp window ------------------------->
 <div class="row m-0 p-0 justify-content-center">
@@ -47,11 +52,20 @@
                        
                         <!-------------------------- Transfer Money Button -------------------->
                         <div style="padding:0px 5px;">
-                          <form>
-                            <button type="submit" onclick="Buying_function()" class="btn btn-warning w-100" style="border:1px solid rgb(0,0,0,0.2);border-radius:7px;font-weight:bold">
-                                Transfer Money
-                            </button>
-                          <form>
+
+                          <div class="mb-3" style="width:100%">
+                <form action="{{route('transferCash')}}" method="POST">
+                @csrf
+                <label for="amount">Amount:</label>
+                <input type="number" max="{{$user->balance}}" min="1" name="transfer" id="qty" required>
+                <input type="hidden" name="store_id" id="" value="{{$id}}">
+                <button class="btn btn-warning w-100 mb-3" onclick="Buying_function()" style="float:right ;border:1px solid rgb(0,0,0,0.4); font-weight:bold">
+                    Transfer Cash
+                </button>
+                </form>
+                </div>
+            
+      
                         </div>
                     </div>
                     <!------------------------------- End of Store Info Container ------------------------->

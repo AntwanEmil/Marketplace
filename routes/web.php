@@ -43,7 +43,10 @@ Route::get('store/{id}', [StoreController::class,'show']);
 Route::get('/buyProduct/{id}',[ItemController::class,'ViewForBuy']);
 Route::post('/BuyProduct',[StoreController::class,'buyItem'])->name('BuyProduct');
 
-Route::get('/error', function () {return view('components.Error');});
+Route::post('/AddProduct',[StoreController::class,'addItem'])->name('AddProduct');
+Route::post('/RemoveSoldProduct',[StoreController::class,'removeSoldItem'])->name('removeSoldItem');
+Route::post('/transferCash',[StoreController::class,'transferCash'])->name('transferCash');
+Route::post('/error', function () {return view('components.Error');});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
