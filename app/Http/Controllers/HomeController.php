@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Item;
-
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -26,8 +26,18 @@ class HomeController extends Controller
         if(auth()->user()){
        
        $user = auth()->user();
-        $items = Item::select('items.*')->skip(0)->take(10)->get();   
-        return view('home.HomeScreen' ,['items' => $items]);
+        $orig_items = Item::select('items.*')
+        ->join('users', 'items.owner_id','=','users.id')
+        ->select ('items.*' , 'users.Storename')
+        ->skip(0)->take(5)->get();  
+        
+        
+        $items = DB::table('sellers')
+        ->join('items', 'sellers.item_id', '=', 'items.id')
+        ->join('users', 'sellers.seller_id','=','users.id')
+        ->select ('items.*' , 'users.Storename')
+        ->skip(0)->take(5)->get();
+        return view('home.HomeScreen' ,['items' => $items , 'orig_items'=>$orig_items]);
         }
         else{
             return redirect()->back()->with('fail',"You are not logged in");

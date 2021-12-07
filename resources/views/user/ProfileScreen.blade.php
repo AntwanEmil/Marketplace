@@ -153,7 +153,7 @@
                               <!------------- Price of the product to be changed ------------------>
                               </span>{{$item->price}}</div>
                               <!------------- Edit Product Button ------------------>
-                              <a href="/productDetails" class="btn btn-outline-secondary" style="width: 100%;">Product Details</a>
+                              <a href="/buyProduct/{{$item->id}}" class="btn btn-outline-secondary" style="width: 100%;">Product Details</a>
                               <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
                             </div>
                           </a>

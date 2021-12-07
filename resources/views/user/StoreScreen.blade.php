@@ -103,9 +103,9 @@
                             <img src="{{asset('upload/items/'. $item->image)}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
                           </div> 
                           <!------------- Name of the product to be changed ------------------>
-                          <div>Slim T-shirt</div>
+                          <div>{{$item->name}}</div>
                           <!------------- Name of the store to be changed ------------------>
-                          <div style="font-size:95%; color:gray">{{$info->Storename}}</div>
+                          <div style="font-size:95%; color:gray">owned by {{$info->Storename}}</div>
                           <div style="font-size:120; font-weight:bold; color:red" ><span>$
                           <!------------- Price of the product to be changed ------------------>
                           </span>{{$item->price}}</div>
@@ -116,6 +116,33 @@
                       </a>
                     </div>    
                     @endforeach
+                    <!--sold items-->
+                    @foreach ($sold_items as $sold_item)
+                       
+                   
+                       <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
+                         <a href="buyProduct">
+                           <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
+                             <div style="height:67%;">
+                             <!------------- Image of the product to be changed ------------------>
+                               <img src="{{asset('upload/items/'. $sold_item->image)}}" class="img-fluid w-100 h-100 " style="object-fit:cover;"></img>
+                             </div> 
+                             <!------------- Name of the product to be changed ------------------>
+                             <div>{{$sold_item->name}}</div>
+                             <!------------- Name of the store to be changed ------------------>
+                             <div style="font-size:95%; color:gray">owned by: {{$sold_item->Storename}}</div>
+                             <div style="font-size:120; font-weight:bold; color:red" ><span>$
+                             <!------------- Price of the product to be changed ------------------>
+                             </span>{{$sold_item->price}}</div>
+                             <!------------- Edit Product Button ------------------>
+                             <a href="/buyProduct/{{$sold_item->id}}" class="btn btn-outline-secondary" style="width: 100%;">Product Details</a>
+                             <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
+                           </div>
+                         </a>
+                       </div>    
+                       @endforeach
+
+
                     <!---------------------------------------- End of repeated blocks of different products ------------------------------------->
                 </div>
             </div>

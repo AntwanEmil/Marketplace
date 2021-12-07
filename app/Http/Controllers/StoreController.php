@@ -16,9 +16,14 @@ class StoreController extends Controller
         $info = User::where('id','=',$UserID)
         ->select('users.image as userImage','users.Storename','users.name as userName','users.email')
         ->first();
-
+        
         $items = Item::select('items.*')->where('owner_id','=',$UserID)->get();
-        return view('user.StoreScreen',['info'=>$info, 'items'=>$items , 'user'=>$user , 'id'=>$UserID]);
+        $sold_items = DB::table('sellers')->where('sellers.seller_id', '=', $UserID)
+        ->join('items', 'sellers.item_id', '=', 'items.id')
+        ->join('users', 'items.owner_id','=', 'users.id')
+        ->select ('items.*' , 'users.Storename')
+        ->get();
+        return view('user.StoreScreen',['info'=>$info, 'items'=>$items ,'sold_items'=>$sold_items, 'user'=>$user , 'id'=>$UserID ]);
         }
     }
     public function update_report($op, $item , $user , $store , $transfered_cash){
