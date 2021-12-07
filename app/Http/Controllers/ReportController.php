@@ -35,7 +35,9 @@ class ReportController extends Controller
                 ->select('transactions.date','transactions.description')
                 ->orderBy('transactions.date', 'desc')
                 ->get();
-        return view('user.Report' ,['reports' => $reports ]);
+
+        $transfers = DB::table ('transferred_cash')->where('from_user_id','=',$user->id)->get();
+        return view('user.Report' ,['reports' => $reports ,'transfers'=>$transfers ,'user'=>$user]);
         }
     }
 

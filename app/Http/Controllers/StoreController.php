@@ -50,6 +50,7 @@ class StoreController extends Controller
             $transaction_id = DB::table('transactions')->insertGetId([
                 'description' => $description_add
             ]);
+            DB::table('transferred_cash')->insert([ 'from_user_id'=>$user->id, 'to_user_id'=>$store->id, 'amount'=>$transfered_cash ]);
         }
 
         // adding mapping info to reports table //
@@ -153,7 +154,7 @@ class StoreController extends Controller
             DB::table('users')
               ->where('id', $store->id)
               ->update(['balance' => $new_store_balance]);
-              
+            
             
             $user->save();
             $store->save();
