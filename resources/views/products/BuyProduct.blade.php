@@ -11,7 +11,7 @@
   <!------------- Product Image and link ------------->
   <div class="row m-0" style="padding:0.5% 0% 3% 0%">
     <!------------- link to the homepage ------------->   
-    <div class="col-12 m-0" ><a href="/">&#8592; Back to HomeScreen</a></div>
+    <div class="col-12 m-0" ><a href="/home">&#8592; Back to HomeScreen</a></div>
     <!-- Product Image -->
     <div class="col-lg-5 col-md-5 col-sm-12 col-12 mb-2"><img src="{{asset('upload/items/'. $item->image)}}"img-fluid w-100 style="width: 50%; height:90%;" ></div>
     <!-- Dexcription Container -->
