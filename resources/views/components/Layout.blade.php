@@ -22,7 +22,7 @@
       </div>
       <!-------------- Capital Store (Logo of the Site) ----------------->
       <div class="col-9" style="padding: 0 30px; margin-left:-20px">
-        <a href= "/" class="navbar-brand text-light"  style="font-size:170%; font-weight:bold; line-height:70%; height:3rem">
+        <a href= "/home" class="navbar-brand text-light"  style="font-size:170%; font-weight:bold; line-height:70%; height:3rem">
           <img src="{{URL::asset('images/logo.PNG')}}" alt="logo" class="ml-2" style="object-fit:contain; height:3rem;" />
           <span class="ml-2">Capital 
           <span style="background:-webkit-linear-gradient(#1AC29C, #207DA0); -Webkit-background-clip:text; -Webkit-text-fill-color:transparent">store</span>
