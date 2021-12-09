@@ -77,12 +77,12 @@ class ItemController extends ProfileController
 
         if (Item::where('id', $id)->exists()) {
             $item = Item::where('items.id', $id)
-            ->join('purshased_items','purshased_items.item_id','=','items.id')
-            ->select('items.*', 'purshased_items.amount as qty')
+            ->join('users','users.id','=','items.owner_id')
+            ->select('items.*','users.Storename')
             ->first();
-            $store = User::where('id', $item->owner_id)->first();
+           // $store = User::where('id', $item->owner_id)->first();
 
-            return view('products.ProductDetails', ['item' => $item, 'store' => $store]);
+            return view('products.ProductDetails', ['item' => $item]);
         } else {
             return redirect()->back()->with('fail', 'No such a product');
         }
@@ -176,9 +176,11 @@ class ItemController extends ProfileController
     {
 
     $search_text=$_GET['search'];
-    $items=Item::where('name','LIKE','%'.$search_text.'%')->get();
+    $items=Item::where('items.name','LIKE','%'.$search_text.'%')
+    ->join('users', 'items.owner_id','=','users.id')
+    ->select ('items.*' , 'users.Storename')->get();
     return  view('home.HomeScreen',['items'=>$items]);
-
+   
 
     }
 

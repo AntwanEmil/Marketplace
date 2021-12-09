@@ -102,7 +102,7 @@
                         
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
                           
-                          <a href="{{url('myProdForSale/'.$item->id)}}">
+                          <a href="/ProductDetail/{{$item->id}}">
                               <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                                 <div style="height:67%;">
                                 <!------------- Image of the product to be changed ------------------>
@@ -116,7 +116,7 @@
                                 <!------------- Price of the product to be changed ------------------>
                                 </span>{{$item->price}}</div>
                                 <!------------- Edit Product Button ------------------>
-                                <a href="editProduct/{{$item->id}}" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
+                                <a href="/editProduct/{{$item->id}}" class="btn btn-outline-success" style="width: 100%;">Edit Product</a>
                                 <hr style="border-top:1px solid rgba(0, 0, 0, 0.3)">
                               </div>
                             </a>
@@ -139,7 +139,7 @@
                             
                                        
                         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" style="height: 17rem; margin:2% 0%;">
-                          <a href="{{url('ProductDetail/'. $item->id)}}">
+                          <a href="/buyProduct/{{$item->id}}">
                             <div class="h-100 hvr-float-shadow" style="padding:2% 2%; width:80%; margin:0% 10%;">
                               <div style="height:67%;">
                               <!------------- Image of the product to be changed ------------------>

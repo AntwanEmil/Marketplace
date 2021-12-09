@@ -30,7 +30,7 @@
         <div></div>
     </div>
     <!-- Buying Cart -->
-    
+    @if($item->owner_id != $user->id)
     <div class="col-lg-3 col-md-4 col-sm-12 col-12">
       
         <div style="border:1px solid rgb(0,0,0,0.2); border-radius:10px; padding:6% 4%; font-weight:bold">
@@ -50,11 +50,21 @@
                 <button class="btn btn-warning w-100 mb-3" onclick="Buying_function()" style="border:1px solid rgb(0,0,0,0.4); font-weight:bold">
                     Buy
                 </button>
+                @else 
+                <div style="border:1px solid rgb(0,0,0,0.2); border-radius:10px; padding:6% 4%; font-weight:bold">
+                    <div class="mb-2" >Price: {{$item->price}}</div>
+                    <div class="mb-2" >Status: 
+                       
+                            out of stock
+                        </div>
+                </div> 
+                @endif
                 <!-------------------------------------------------->
             <!--FOR BACK END: This button must be in a separate form , with all data needed are inside 
                 the form to send it to back, you could type the needed data in hidden input,
                  as [[[[[[[[[[[[[[[[in line 97 and 98 ]]]]]]]]]]]]]]]]]]] -->
             <!-------------------------------------------------->
+         
             @if (! $is_sold )
             <form action="{{route('AddProduct')}}" method="POST">
                     @csrf
@@ -81,17 +91,12 @@
 
 
             @endif
+           
+            
         </div>
          
-            @else 
-            <div style="border:1px solid rgb(0,0,0,0.2); border-radius:10px; padding:6% 4%; font-weight:bold">
-                <div class="mb-2" >Price: {{$item->price}}</div>
-                <div class="mb-2" >Status: 
-                   
-                        out of stock
-                    </div>
-            </div> 
-            @endif
+        @endif 
+          
       
     </div>       
 </div>
